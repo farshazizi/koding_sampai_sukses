@@ -25,13 +25,13 @@ Route::get('/sipp/member/biodata', function () {
     return view('sipp/member/biodata');
 });
 
-// Route::resource('/sipp/member/pembayaran', 'Member\PembayaranController');
+Route::resource('/sipp/member/pembayaran', 'Member\BiodataController');
 
 Route::get('/sipp/member/pembayaran', function () {
     return view('sipp/member/pembayaran');
 });
 
-// Route::resource('/sipp/member/pendidikan_karir', 'Member\PendidikanKarirController');
+Route::resource('/sipp/member/pendidikan_karir', 'Member\PendidikanKarirController');
 
 Route::get('/sipp/member/pendidikan_karir', function () {
     return view('sipp/member/pendidikan_karir');

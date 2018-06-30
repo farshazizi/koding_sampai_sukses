@@ -59,7 +59,9 @@
               </ul>
 
               <!-- Tab panes -->
-              <form method="POST" action="member/tambahsipp">
+              {{-- <form method="POST" action="member/tambahsipp"> --}}
+              {!! Form::open(['route' => 'pendidikan_karir.store', 'files'=> true, 'enctype'=>'multipart/form-data']) !!}
+                {{ Form::hidden('id_pengajuan') }}
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="pendidikankarir">
                       <h4 class="hform"> Pengalaman Pendidikan</h4>
@@ -80,360 +82,96 @@
                           <tbody>
                             <tr id="trpendidikan1" >
                               <td>
-                                <select class="form-control" name="jenjang_pendidikan1">
-                                  <option value="S1">S1</option>
-                                  <option value="S2">S2</option>
-                                  <option value="S3">S3</option>
-                                </select>
-                              </td>
-                              <td><input type="text" id="nama_lkp" name="universitas1" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="bidang_ilmu1" class="form-control col-md-7 col-xs-12" ></td>
-                              <td>
-                                <select class="form-control" name="tahun_masuk1">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control', 'id' => 'jenjang_pendidikan[]')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluar1">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="universitas1" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
                               </td>
-                              <td><center><input name="ijazah1" type="file" /></td>
-                              <td><center><input name="transkrip1" type="file" /></td>
+                              <td>
+                                {{-- <input type="text" id="nama_lkp" name="bidang_ilmu1" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_lulus[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                <center>
+                                  {{-- <input name="ijazah1" type="file" /> --}}
+                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control')) }}
+                                </center>
+                              </td>
+                              <td>
+                                <center>
+                                  {{-- <input name="transkrip1" type="file" /> --}}
+                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control')) }}
+                                </center>
+                              </td>
                             </tr>
                             <tr id="trpendidikan2" style="display:none;">
                               <td>
-                                <select class="form-control" name="jenjang_pendidikan2">
-                                  <option value="S1">S1</option>
-                                  <option value="S2">S2</option>
-                                  <option value="S3">S3</option>
-                                </select>
-                              </td>
-                              <td><input type="text" id="nama_lkp" name="universitas2" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="bidang_ilmu2" class="form-control col-md-7 col-xs-12" ></td>
-                              <td>
-                                <select class="form-control" name="tahun_masuk2">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control', 'id' => 'jenjang_pendidikan[]')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluar2">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="universitas2" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
                               </td>
-                              <td><center><input name="ijazah2" type="file" /></td>
-                              <td><center><input name="transkrip2" type="file" /></td>
+                              <td>
+                                {{-- <input type="text" id="nama_lkp" name="bidang_ilmu2" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_lulus[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                <center>
+                                  {{-- <input name="ijazah2" type="file" /> --}}
+                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control')) }}
+                                </center>
+                              </td>
+                              <td>
+                                <center>
+                                  {{-- <input name="transkrip2" type="file" /> --}}
+                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control')) }}
+                                </center>
+                              </td>
                             </tr>
                             <tr id="trpendidikan3" style="display:none;">
                               <td>
-                                <select class="form-control" name="jenjang_pendidikan3">
-                                  <option value="S1">S1</option>
-                                  <option value="S2">S2</option>
-                                  <option value="S3">S3</option>
-                                </select>
-                              </td>
-                              <td><input type="text" id="nama_lkp" name="universitas3" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="bidang_ilmu3" class="form-control col-md-7 col-xs-12" ></td>
-                              <td>
-                                <select class="form-control" name="tahun_masuk3">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control', 'id' => 'jenjang_pendidikan[]')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluar3">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="universitas3" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
                               </td>
-                              <td><center><input name="ijazah3" type="file" /></td>
-                              <td><center><input name="transkrip3" type="file" /></td>
+                              <td>
+                                {{-- <input type="text" id="nama_lkp" name="bidang_ilmu3" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_lulus[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                <center>
+                                  {{-- <input name="ijazah3" type="file" /> --}}
+                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control')) }}
+                                </center>
+                              </td>
+                              <td>
+                                <center>
+                                  {{-- <input name="transkrip3" type="file" /> --}}
+                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control')) }}
+                                </center>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -462,63 +200,17 @@
                           <tbody>
                             <tr id="trkarir1" >
                               <td><center>1</center></td>
-                              <td><input type="text" id="nama_lkp" name="nama_organisasi1" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="jabatan1" class="form-control col-md-7 col-xs-12" ></td>
                               <td>
-                                <select class="form-control" name="tahun_masukkarir1">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="nama_organisasi1" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluarkarir1">
+                                {{-- <input type="text" id="nama_lkp" name="jabatan1" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_masuk1">
                                   <option value="2018">2018</option>
                                   <option value="2017">2017</option>
                                   <option value="2016">2016</option>
@@ -568,68 +260,76 @@
                                   <option value="1972">1972</option>
                                   <option value="1971">1971</option>
                                   <option value="1970">1970</option>
-                                </select>
+                                </select> --}}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_keluar1">
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2000">2000</option>
+                                  <option value="1999">1999</option>
+                                  <option value="1998">1998</option>
+                                  <option value="1997">1997</option>
+                                  <option value="1996">1996</option>
+                                  <option value="1995">1995</option>
+                                  <option value="1994">1994</option>
+                                  <option value="1993">1993</option>
+                                  <option value="1992">1992</option>
+                                  <option value="1991">1991</option>
+                                  <option value="1990">1990</option>
+                                  <option value="1989">1989</option>
+                                  <option value="1988">1988</option>
+                                  <option value="1987">1987</option>
+                                  <option value="1986">1986</option>
+                                  <option value="1985">1985</option>
+                                  <option value="1984">1984</option>
+                                  <option value="1983">1983</option>
+                                  <option value="1982">1982</option>
+                                  <option value="1981">1981</option>
+                                  <option value="1980">1980</option>
+                                  <option value="1979">1979</option>
+                                  <option value="1978">1978</option>
+                                  <option value="1977">1977</option>
+                                  <option value="1976">1976</option>
+                                  <option value="1975">1975</option>
+                                  <option value="1974">1974</option>
+                                  <option value="1973">1973</option>
+                                  <option value="1972">1972</option>
+                                  <option value="1971">1971</option>
+                                  <option value="1970">1970</option>
+                                </select> --}}
                               </td>
                             </tr>
                             <tr id="trkarir2" style="display: none;">
                               <td><center>2</center></td>
-                              <td><input type="text" id="nama_lkp" name="nama_organisasi2" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="jabatan2" class="form-control col-md-7 col-xs-12" ></td>
                               <td>
-                                <select class="form-control" name="tahun_masukkarir2">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="nama_organisasi2" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluarkarir2">
+                                {{-- <input type="text" id="nama_lkp" name="jabatan2" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_masuk2">
                                   <option value="2018">2018</option>
                                   <option value="2017">2017</option>
                                   <option value="2016">2016</option>
@@ -679,68 +379,76 @@
                                   <option value="1972">1972</option>
                                   <option value="1971">1971</option>
                                   <option value="1970">1970</option>
-                                </select>
+                                </select> --}}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_keluar2">
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2000">2000</option>
+                                  <option value="1999">1999</option>
+                                  <option value="1998">1998</option>
+                                  <option value="1997">1997</option>
+                                  <option value="1996">1996</option>
+                                  <option value="1995">1995</option>
+                                  <option value="1994">1994</option>
+                                  <option value="1993">1993</option>
+                                  <option value="1992">1992</option>
+                                  <option value="1991">1991</option>
+                                  <option value="1990">1990</option>
+                                  <option value="1989">1989</option>
+                                  <option value="1988">1988</option>
+                                  <option value="1987">1987</option>
+                                  <option value="1986">1986</option>
+                                  <option value="1985">1985</option>
+                                  <option value="1984">1984</option>
+                                  <option value="1983">1983</option>
+                                  <option value="1982">1982</option>
+                                  <option value="1981">1981</option>
+                                  <option value="1980">1980</option>
+                                  <option value="1979">1979</option>
+                                  <option value="1978">1978</option>
+                                  <option value="1977">1977</option>
+                                  <option value="1976">1976</option>
+                                  <option value="1975">1975</option>
+                                  <option value="1974">1974</option>
+                                  <option value="1973">1973</option>
+                                  <option value="1972">1972</option>
+                                  <option value="1971">1971</option>
+                                  <option value="1970">1970</option>
+                                </select> --}}
                               </td>
                             </tr>
                             <tr id="trkarir3" style="display: none;">
                               <td><center>3</center></td>
-                              <td><input type="text" id="nama_lkp" name="nama_organisasi3" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="jabatan3" class="form-control col-md-7 col-xs-12" ></td>
                               <td>
-                                <select class="form-control" name="tahun_masukkarir3">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="nama_organisasi3" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluarkarir3">
+                                {{-- <input type="text" id="nama_lkp" name="jabatan3" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_masuk3">
                                   <option value="2018">2018</option>
                                   <option value="2017">2017</option>
                                   <option value="2016">2016</option>
@@ -790,68 +498,76 @@
                                   <option value="1972">1972</option>
                                   <option value="1971">1971</option>
                                   <option value="1970">1970</option>
-                                </select>
+                                </select> --}}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_keluar3">
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2000">2000</option>
+                                  <option value="1999">1999</option>
+                                  <option value="1998">1998</option>
+                                  <option value="1997">1997</option>
+                                  <option value="1996">1996</option>
+                                  <option value="1995">1995</option>
+                                  <option value="1994">1994</option>
+                                  <option value="1993">1993</option>
+                                  <option value="1992">1992</option>
+                                  <option value="1991">1991</option>
+                                  <option value="1990">1990</option>
+                                  <option value="1989">1989</option>
+                                  <option value="1988">1988</option>
+                                  <option value="1987">1987</option>
+                                  <option value="1986">1986</option>
+                                  <option value="1985">1985</option>
+                                  <option value="1984">1984</option>
+                                  <option value="1983">1983</option>
+                                  <option value="1982">1982</option>
+                                  <option value="1981">1981</option>
+                                  <option value="1980">1980</option>
+                                  <option value="1979">1979</option>
+                                  <option value="1978">1978</option>
+                                  <option value="1977">1977</option>
+                                  <option value="1976">1976</option>
+                                  <option value="1975">1975</option>
+                                  <option value="1974">1974</option>
+                                  <option value="1973">1973</option>
+                                  <option value="1972">1972</option>
+                                  <option value="1971">1971</option>
+                                  <option value="1970">1970</option>
+                                </select> --}}
                               </td>
                             </tr>
                             <tr id="trkarir4" style="display: none;">
                               <td><center>4</center></td>
-                              <td><input type="text" id="nama_lkp" name="nama_organisasi4" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="jabatan4" class="form-control col-md-7 col-xs-12" ></td>
                               <td>
-                                <select class="form-control" name="tahun_masukkarir4">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="nama_organisasi4" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluarkarir4">
+                                {{-- <input type="text" id="nama_lkp" name="jabatan4" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_masuk4">
                                   <option value="2018">2018</option>
                                   <option value="2017">2017</option>
                                   <option value="2016">2016</option>
@@ -901,68 +617,76 @@
                                   <option value="1972">1972</option>
                                   <option value="1971">1971</option>
                                   <option value="1970">1970</option>
-                                </select>
+                                </select> --}}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control', 'style' => 'width: auto')) }}
+                                {{-- <select class="form-control" name="tahun_keluar4">
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2000">2000</option>
+                                  <option value="1999">1999</option>
+                                  <option value="1998">1998</option>
+                                  <option value="1997">1997</option>
+                                  <option value="1996">1996</option>
+                                  <option value="1995">1995</option>
+                                  <option value="1994">1994</option>
+                                  <option value="1993">1993</option>
+                                  <option value="1992">1992</option>
+                                  <option value="1991">1991</option>
+                                  <option value="1990">1990</option>
+                                  <option value="1989">1989</option>
+                                  <option value="1988">1988</option>
+                                  <option value="1987">1987</option>
+                                  <option value="1986">1986</option>
+                                  <option value="1985">1985</option>
+                                  <option value="1984">1984</option>
+                                  <option value="1983">1983</option>
+                                  <option value="1982">1982</option>
+                                  <option value="1981">1981</option>
+                                  <option value="1980">1980</option>
+                                  <option value="1979">1979</option>
+                                  <option value="1978">1978</option>
+                                  <option value="1977">1977</option>
+                                  <option value="1976">1976</option>
+                                  <option value="1975">1975</option>
+                                  <option value="1974">1974</option>
+                                  <option value="1973">1973</option>
+                                  <option value="1972">1972</option>
+                                  <option value="1971">1971</option>
+                                  <option value="1970">1970</option>
+                                </select> --}}
                               </td>
                             </tr>
                             <tr id="trkarir5" style="display: none;">
                               <td><center>5</center></td>
-                              <td><input type="text" id="nama_lkp" name="nama_organisasi5" class="form-control col-md-7 col-xs-12" ></td>
-                              <td><input type="text" id="nama_lkp" name="jabatan5" class="form-control col-md-7 col-xs-12" ></td>
                               <td>
-                                <select class="form-control" name="tahun_masukkarir5">
-                                  <option value="2018">2018</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2006">2006</option>
-                                  <option value="2005">2005</option>
-                                  <option value="2004">2004</option>
-                                  <option value="2003">2003</option>
-                                  <option value="2002">2002</option>
-                                  <option value="2001">2001</option>
-                                  <option value="2000">2000</option>
-                                  <option value="1999">1999</option>
-                                  <option value="1998">1998</option>
-                                  <option value="1997">1997</option>
-                                  <option value="1996">1996</option>
-                                  <option value="1995">1995</option>
-                                  <option value="1994">1994</option>
-                                  <option value="1993">1993</option>
-                                  <option value="1992">1992</option>
-                                  <option value="1991">1991</option>
-                                  <option value="1990">1990</option>
-                                  <option value="1989">1989</option>
-                                  <option value="1988">1988</option>
-                                  <option value="1987">1987</option>
-                                  <option value="1986">1986</option>
-                                  <option value="1985">1985</option>
-                                  <option value="1984">1984</option>
-                                  <option value="1983">1983</option>
-                                  <option value="1982">1982</option>
-                                  <option value="1981">1981</option>
-                                  <option value="1980">1980</option>
-                                  <option value="1979">1979</option>
-                                  <option value="1978">1978</option>
-                                  <option value="1977">1977</option>
-                                  <option value="1976">1976</option>
-                                  <option value="1975">1975</option>
-                                  <option value="1974">1974</option>
-                                  <option value="1973">1973</option>
-                                  <option value="1972">1972</option>
-                                  <option value="1971">1971</option>
-                                  <option value="1970">1970</option>
-                                </select>
+                                {{-- <input type="text" id="nama_lkp" name="nama_organisasi5" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                <select class="form-control" name="tahun_keluarkarir5">
+                                {{-- <input type="text" id="nama_lkp" name="jabatan5" class="form-control col-md-7 col-xs-12" > --}}
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_masuk5">
                                   <option value="2018">2018</option>
                                   <option value="2017">2017</option>
                                   <option value="2016">2016</option>
@@ -1012,7 +736,136 @@
                                   <option value="1972">1972</option>
                                   <option value="1971">1971</option>
                                   <option value="1970">1970</option>
-                                </select>
+                                </select> --}}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{-- <select class="form-control" name="tahun_keluar5">
+                                  <option value="2018">2018</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2000">2000</option>
+                                  <option value="1999">1999</option>
+                                  <option value="1998">1998</option>
+                                  <option value="1997">1997</option>
+                                  <option value="1996">1996</option>
+                                  <option value="1995">1995</option>
+                                  <option value="1994">1994</option>
+                                  <option value="1993">1993</option>
+                                  <option value="1992">1992</option>
+                                  <option value="1991">1991</option>
+                                  <option value="1990">1990</option>
+                                  <option value="1989">1989</option>
+                                  <option value="1988">1988</option>
+                                  <option value="1987">1987</option>
+                                  <option value="1986">1986</option>
+                                  <option value="1985">1985</option>
+                                  <option value="1984">1984</option>
+                                  <option value="1983">1983</option>
+                                  <option value="1982">1982</option>
+                                  <option value="1981">1981</option>
+                                  <option value="1980">1980</option>
+                                  <option value="1979">1979</option>
+                                  <option value="1978">1978</option>
+                                  <option value="1977">1977</option>
+                                  <option value="1976">1976</option>
+                                  <option value="1975">1975</option>
+                                  <option value="1974">1974</option>
+                                  <option value="1973">1973</option>
+                                  <option value="1972">1972</option>
+                                  <option value="1971">1971</option>
+                                  <option value="1970">1970</option>
+                                </select> --}}
+                              </td>
+                            </tr>
+                            <tr id="trkarir6" style="display: none;">
+                              <td><center>6</center></td>
+                              <td>
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                            </tr>
+                            <tr id="trkarir7" style="display: none;">
+                              <td><center>7</center></td>
+                              <td>
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                            </tr>
+                            <tr id="trkarir8" style="display: none;">
+                              <td><center>8</center></td>
+                              <td>
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                            </tr>
+                            <tr id="trkarir9" style="display: none;">
+                              <td><center>9</center></td>
+                              <td>
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                            </tr>
+                            <tr id="trkarir10" style="display: none;">
+                              <td><center>10</center></td>
+                              <td>
+                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
+                              </td>
+                              <td>
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
                               </td>
                             </tr>
                           </tbody>
@@ -1023,12 +876,14 @@
                       <br><br><br>
                       
                       <div class="box-footer">
-                        <input type="hidden" name="submitpendidikan"  value="submitpendidikan">
-                        <center><button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></center>
+                        {{-- <input type="hidden" name="submitpendidikan"  value="submitpendidikan"> --}}
+                        {{-- <center><button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></center> --}}
+                        {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
                       </div>
                     </div>
                 </div>
-                </form>
+                {{ Form::close() }}
+                {{-- </form> --}}
             </div>
           </div>
             <!-- /.panel-body -->

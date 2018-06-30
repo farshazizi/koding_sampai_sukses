@@ -78,6 +78,12 @@
     var trkarir3 = document.getElementById("trkarir3").style.display;
     var trkarir4 = document.getElementById("trkarir4").style.display;
     var trkarir5 = document.getElementById("trkarir5").style.display;
+    var trkarir6 = document.getElementById("trkarir6").style.display;
+    var trkarir7 = document.getElementById("trkarir7").style.display;
+    var trkarir8 = document.getElementById("trkarir8").style.display;
+    var trkarir9 = document.getElementById("trkarir9").style.display;
+    var trkarir10 = document.getElementById("trkarir10").style.display;
+
     if(trkarir2 == "none"){
       document.getElementById("trkarir2").style = "";
     }else{
@@ -89,7 +95,27 @@
         }else{
           if(trkarir5 == "none"){
             document.getElementById("trkarir5").style = "";
-            document.getElementById("btntambahkarir").style.display = "none";
+          } else {
+            if (trkarir6 == "none") {
+              document.getElementById("trkarir6").style = "";
+            } else {
+              if (trkarir7 == "none") {
+                document.getElementById("trkarir7").style = "";
+              } else {
+                if (trkarir8 == "none") {
+                  document.getElementById("trkarir8").style = "";
+                } else {
+                  if (trkarir9 == "none") {
+                    document.getElementById("trkarir9").style = "";
+                  } else {
+                    if (trkarir10 == "none") {
+                      document.getElementById("trkarir10").style = "";
+                      document.getElementById("btntambahkarir").style.display = "none";
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

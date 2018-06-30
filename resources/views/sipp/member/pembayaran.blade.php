@@ -59,13 +59,13 @@
               </ul>
 
               <!-- Tab panes -->
-              <form method="POST" action="member/tambahsipp" enctype="multipart/form-data">
+              {{-- <form method="POST" action="member/tambahsipp" enctype="multipart/form-data"> --}}
+              {!! Form::open(['route' => ['biodata.update', $m_biodata->id], 'method' => 'PUT', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="pembayaran">
                     <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                         <h4 class="hform"> Konfirmasi Bukti Pembayaran </h4>
                         <p>Silakan lakukan upload bukti pembayaran SIPP</p><br>
-
                         <div class="form-group">
                           <label for="spp/sipp" class="control-label col-md-3 col-sm-3 col-xs-12">Foto Bukti Transfer/Pembayaran Pendaftaran SIPP<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
@@ -81,13 +81,19 @@
                         </div>
                     </div>
                     <hr>
+              {{-- {{ Form::close() }} --}}
                     <div class="box-footer">
                       <div class="col-lg-6"><a href="/sipp/member/biodata" data-toggle="tab"><button type="button" class="btn btn-primary btn-block" onclick="backwardPembayaran(2);" data-toggle="modal" data-target=".bs-example-modal-lg">Kembali</button></a></div>
-                      <div class="col-lg-6"><a href="#pendidikankarir" data-toggle="tab"><button type="button" class="btn btn-primary btn-block" onclick="forwardPembayaran(2);" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a></div>
+                      <div class="col-lg-6">
+                        {{-- <a href="#pendidikankarir" data-toggle="tab"><button type="button" class="btn btn-primary btn-block" onclick="forwardPembayaran(2);" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a> --}}
+                        {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
+                      </div>
+
                     </div>
                   </div>
                 </div>
-              </form>
+              {{ Form::close() }}
+              {{-- </form> --}}
             </div>
             <!-- /.panel-body -->
           </div>

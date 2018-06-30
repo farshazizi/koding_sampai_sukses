@@ -37,32 +37,32 @@
             <div class="panel-body">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab">Biodata</a>
-                  </li>
-                  <li class="disabled"><a class="nav-link disabled">Pembayaran</a>
-                  </li>
-                  <li class="disabled"><a class="nav-link disabled">Pendidikan - Karir</a>
-                  </li>
-                  <li class="disabled"><a class="nav-link disabled">Portofolio Kasus</a>
-                  </li>
-                  <li class="disabled"><a class="nav-link disabled">Pengembangan Professional</a>
-                  </li>
-                  <li class="disabled"><a class="nav-link disabled">Finalisasi</a>
-                  </li>
-                  <div class="top-menu">
-                    <ul class="nav navbar-nav pull-right">
-                        <li class="dropdown dropdown-quick-sidebar-toggler">
-                          {!! Form::open($m_biodata, ['route' => ['biodata.update', $m_biodata->id], 'method' => 'PUT']) !!}
-                          <button type="button" class="btn btn-sm" style="background-color: orange; color: white">Save to draft</button>
-                          {!! Form::close() !!}
-                        </li>
-                    </ul>
-                  </div>
+                <li class="active"><a data-toggle="tab">Biodata</a>
+                </li>
+                <li class="disabled"><a class="nav-link disabled">Pembayaran</a>
+                </li>
+                <li class="disabled"><a class="nav-link disabled">Pendidikan - Karir</a>
+                </li>
+                <li class="disabled"><a class="nav-link disabled">Portofolio Kasus</a>
+                </li>
+                <li class="disabled"><a class="nav-link disabled">Pengembangan Professional</a>
+                </li>
+                <li class="disabled"><a class="nav-link disabled">Finalisasi</a>
+                </li>
+                <div class="top-menu">
+                  <ul class="nav navbar-nav pull-right">
+                      <li class="dropdown dropdown-quick-sidebar-toggler">
+                        {{-- {{ Form::submit('Save to draft', array('class' => 'btn btn-sm', 'style' => 'background-color: orange; color: white')) }} --}}
+                        <button type="button" class="btn btn-sm" style="background-color: orange; color: white">Save to draft</button>
+                      </li>
+                  </ul>
+                </div>
               </ul>
 
               <!-- Tab panes -->
+                        {!! Form::open(['route' => 'biodata.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
               {{-- {!! Form::open(array('route' => 'biodata.store')) !!} --}}
-              {!! Form::open(['route' => 'biodata.store']) !!}
+              
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="biodata">
                     <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
@@ -150,21 +150,21 @@
                       <div class="form-group">
                         <label for="kodepos" class="control-label col-md-3 col-sm-3 col-xs-12">Kodepos<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          {{ Form::number('kodepos', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                          {{ Form::text('kodepos', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="telp" class="control-label col-md-3 col-sm-3 col-xs-12">Telepon<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          {{ Form::number('telepon', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                          {{ Form::text('telepon', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="no-hp" class="control-label col-md-3 col-sm-3 col-xs-12">Handphone/Whatsapp<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          {{ Form::number('handphone', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                          {{ Form::text('handphone', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                         </div>
                       </div>
 
@@ -309,7 +309,7 @@
 
                           <div class="radio">
                             <label>
-                              {{ Form::radio('praktek_psikologi_dilakukan', '2') }} Bersama-sama dengan sejawat psikologi lainnya (Tulis nama lengkap dengan gelar rekan Anda di bawah ini )
+                              {{ Form::radio('teman_praktek', '2') }} Bersama-sama dengan sejawat psikologi lainnya (Tulis nama lengkap dengan gelar rekan Anda di bawah ini )
                             </label>
 
                             <div class="form-group">
@@ -375,14 +375,14 @@
                           </div>
                         </div>
                       </div>
-
+                      {{-- {!! Form::close() !!} --}}
                       {{-- <div class="box-footer">
                         <center><button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a></center>
                       </div> --}}
 
                       <div class="box-footer">
                         <center>
-                          <a href="pembayaran"  data-toggle="tab"><button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg" >Lanjutkan</button></a>
+                            {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
                         </center>
                       </div>
 
@@ -417,5 +417,79 @@
   <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
+{{-- <script>
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+  showTab(currentTab); // Display the crurrent tab
+
+  function showTab(n) {
+    // This function will display the specified tab of the form...
+    var x = document.getElementsByClassName("tab");
+    x[n].style.display = "block";
+    //... and fix the Previous/Next buttons:
+    if (n == 0) {
+      document.getElementById("prevBtn").style.display = "none";
+    } else {
+      document.getElementById("prevBtn").style.display = "inline";
+    }
+    if (n == (x.length - 1)) {
+      document.getElementById("nextBtn").innerHTML = "Submit";
+    } else {
+      document.getElementById("nextBtn").innerHTML = "Next";
+    }
+    //... and run a function that will display the correct step indicator:
+    fixStepIndicator(n)
+  }
+
+  function nextPrev(n) {
+    // This function will figure out which tab to display
+    var x = document.getElementsByClassName("tab");
+    // Exit the function if any field in the current tab is invalid:
+    // if (n == 1 && !validateForm()) return false;
+    // Hide the current tab:
+    x[currentTab].style.display = "none";
+    // Increase or decrease the current tab by 1:
+    currentTab = currentTab + n;
+    // if you have reached the end of the form...
+    if (currentTab >= x.length) {
+      // ... the form gets submitted:
+      document.getElementById("regForm").submit();
+      return false;
+    }
+    // Otherwise, display the correct tab:
+    showTab(currentTab);
+  }
+
+  function validateForm() {
+    // This function deals with validation of the form fields
+    var x, y, i, valid = true;
+    x = document.getElementsByClassName("tab");
+    y = x[currentTab].getElementsByTagName("input");
+    // A loop that checks every input field in the current tab:
+    for (i = 0; i < y.length; i++) {
+      // If a field is empty...
+      if (y[i].value == "") {
+        // add an "invalid" class to the field:
+        y[i].className += " invalid";
+        // and set the current valid status to false
+        valid = false;
+      }
+    }
+    // If the valid status is true, mark the step as finished and valid:
+    if (valid) {
+      document.getElementsByClassName("step")[currentTab].className += " finish";
+    }
+    return valid; // return the valid status
+  }
+
+  function fixStepIndicator(n) {
+    // This function removes the "active" class of all steps...
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+      x[i].className = x[i].className.replace(" active", "");
+    }
+    //... and adds the "active" class on the current step:
+    x[n].className += " active";
+  }
+</script> --}}
 @include('sipp/member/_javascript')
 @endsection

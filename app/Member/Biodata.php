@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Biodata extends Model
 {
-    protected $table = 'm_biodatas';
+    protected $table = 'pengajuan_administrasi';
 
 	public $primaryKey = 'id';	
 
