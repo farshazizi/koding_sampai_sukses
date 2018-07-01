@@ -18,7 +18,7 @@ class MemberKarirsTable extends Migration
             $table->integer('id_pengajuan')->unsigned()->nullable();
             $table->string('nama_organisasi')->nullable();
             $table->string('jabatan')->nullable();
-            $table->string('tahun_masuk')->nullable();
+            $table->string('tahun_masukKarir')->nullable();
             $table->string('tahun_keluar')->nullable();
             $table->string('checklist')->nullable();
             $table->timestamps();

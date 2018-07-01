@@ -84,7 +84,7 @@ class PendidikanKarirController extends Controller
 
             $kar->nama_organisasi        = $request->nama_organisasi[$i];
             $kar->jabatan                = $request->jabatan[$i];
-            $kar->tahun_masuk            = $request->tahun_masuk[$i];
+            $kar->tahun_masukKarir       = $request->tahun_masukKarir[$i];
             $kar->tahun_keluar           = $request->tahun_keluar[$i];
 
             $kar->save();

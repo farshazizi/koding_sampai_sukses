@@ -14,7 +14,7 @@ class Karir extends Model
         'id_pengajuan',
         'nama_organisasi',
         'jabatan',
-        'tahun_masuk',
+        'tahun_masukKarir',
         'tahun_keluar',
         'checklist',
     ];
