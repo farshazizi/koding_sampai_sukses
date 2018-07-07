@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Pendidikan;
 use App\Member\Karir;
+use Image;
 
 class PendidikanKarirController extends Controller
 {
@@ -41,7 +42,7 @@ class PendidikanKarirController extends Controller
         for ($i=0;$i<count($request->jenjang_pendidikan);$i++) {
             $pend = new Pendidikan;
             
-            $pend->id_pengajuan          = 5;
+            $pend->id_pengajuan         = $request->id_pengajuan;
             $pend->checklist            = $request->checklist;
 
             $pend->jenjang_pendidikan   = $request->jenjang_pendidikan[$i]; 
@@ -50,36 +51,94 @@ class PendidikanKarirController extends Controller
             $pend->tahun_masuk          = $request->tahun_masuk[$i]; 
             $pend->tahun_lulus          = $request->tahun_lulus[$i]; 
 
-            // $pend->ijazah               = $request->ijazah[$i];
             // if ($request->hasFile('ijazah'.$i)) {
-                // $photo = $request->file('ijazah'.$i); 
-                // $destination = base_path().'/public/images/ijazah';
-                // $filename = $photo->getClientOriginalName();
-                // $photo->move($destination,$filename);
-                // $pend['ijazah']          = $filename;
-                $photo = $request->file('ijazah'.$i);
-                $destination = base_path().'/public/images/ijazah';
-                $filename = $photo->getClientOriginalName();
-                $photo->move($destination,$filename);
-                $m_biodata['ijazah']              = $filename;
+            //     $image = $request->file('ijazah'.$i);
+            //     $filename = $image->getClientOriginalExtension();
+            //     $location = public_path('/images/ijazah/'.$filename);
+            //     Image::make($image)->save($location);
+            //     $pend->ijazah[$i]       = $filename;
             // }
 
-            // $pend->transkrip            = $request->transkrip[$i];
+            // $photo = $request->file('foto_pas');
+            // $destination = base_path().'/public/images/foto_pas';
+            // $filename = $photo->getClientOriginalName();
+            // $photo->move($destination,$filename);
+            // $m_biodata['foto_pas']                  = $filename;
+
+            // PERCOBAAN KEDUA
+            // $ijazah = array();
+            // if($files = $request->file('ijazah')){
+            //     foreach($files as $file){
+                    // $name = $file->getClientOriginalName();
+                    // $file->move('/public/images/ijazah/',$name);
+                    // $ijazah[] = $name;
+
+                    // $name = $file->getClientOriginalName();
+                    // $location = public_path('/public/images/ijazah/'.$name);
+                    // Image::make($file)->save($location);
+                    // $ijazah[] = $name;
+
+                    // $destination = base_path().'/public/images/ijazah/';
+                    // $filename = $file->getClientOriginalName();
+                    // $file->move($destination,$filename);
+                    // $ijazah[] = $filename;
+            //     }
+            // }
+
+            // PERCOBAAN KETIGA
+            // if ($files = $request->file('file')) {
+            //     foreach ($files as $file) {
+            //         $filename = time().'.'.$file->getClientOriginalName();
+
+            //         $location = public_path('/public/images/ijazah/'.$filename);
+
+            //         // $request->file->move(public_path('/uploads'), end($filename));
+            //         $file->move(public_path('/public/images/ijazah/'), end($filename));
+
+            //         Image::make($file)->save($location);
+            //         $ijazah[] = $filename;
+
+            //         // $filename_arr = [];
+            //         // array_push($filename_arr, $filename);
+            //         // $filename = json_encode($filename_arr);
+            //         // $upload->filename = $filename;
+            //     }
+            // }
+
+            // KEEMPAT
+            if ($files = $request->file('ijazah')) {
+                foreach ($files as $file) {
+                    $filename = $file->getClientOriginalName();
+                    $location = public_path('/images/ijazah/'.$filename);
+                    Image::make($file)->save($location);
+                    $pend->ijazah = $filename;
+                }
+            }
+
             // if ($request->hasFile('transkrip'.$i)) {
-                $photo = $request->file('transkrip'.$i);
-                $destination = base_path().'/public/images/transkrip';
-                $filename = $photo->getClientOriginalName();
-                $photo->move($destination,$filename);
-                $pend['transkrip']       = $filename;
+            //     $image = $request->file('transkrip'.$i);
+            //     $filename = $image->getClientOriginalExtension();
+            //     $location = public_path('/images/transkrip/'.$filename);
+            //     Image::make($image)->save($location);
+            //     $pend->transkrip[$i]    = $filename;
             // }
 
+            if ($files = $request->file('transkrip')) {
+                foreach ($files as $file) {
+                    $filename = $file->getClientOriginalName();
+                    $location = public_path('/images/transkrip/'.$filename);
+                    Image::make($file)->save($location);
+                    $pend->transkrip = $filename;
+                }
+            }
+            
             $pend->save();
         }
 
         for ($i=0;$i<count($request->nama_organisasi);$i++) {
             $kar = new Karir;
             
-            $kar->id_pengajuan           = 5;
+            $kar->id_pengajuan           = $request->id_pengajuan;
             $kar->checklist              = $request->checklist;
 
             $kar->nama_organisasi        = $request->nama_organisasi[$i];

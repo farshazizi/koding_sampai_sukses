@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Member;
+namespace App\Http\Controllers\Administrasi;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member\Kasus;
+use App\Member\Biodata;
 
-class PortofolioKasusController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class PortofolioKasusController extends Controller
      */
     public function index()
     {
-        //
+        $halo = Biodata::orderby('id')->get(); 
+        return view('sipp.administrasi.home', compact('halo'));
     }
 
     /**
@@ -25,7 +26,7 @@ class PortofolioKasusController extends Controller
      */
     public function create()
     {
-        return view('sipp.member.portofolio_kasus');
+        return view('sipp.administrasi.home');
     }
 
     /**
@@ -36,28 +37,7 @@ class PortofolioKasusController extends Controller
      */
     public function store(Request $request)
     {
-        // store in the database
-        for ($i=0;$i<count($request->tujuan);$i++) {
-            $kas = new Kasus;
-            
-            $kas->id_pengajuan      = $request->id_pengajuan;
-            $kas->checklist         = $request->checklist;
-
-            $kas->tahun             = $request->tahun[$i]; 
-            $kas->tujuan            = $request->tujuan[$i]; 
-            $kas->nama_lembaga      = $request->nama_lembaga[$i]; 
-            $kas->tindakan          = $request->tindakan[$i]; 
-
-            $kas->save();
-        }
-
-        // redirect to another page
-        // return redirect()->route('biodata.update');
-        return redirect('sipp/member/pengembangan_prof');
-        // return redirect('sipp/member/portofolio_kasus');
-        // return redirect()->route('portofolio.store', $pend->id);
-        // return redirect()->route('biodata.', $pend->id);
-        // return view('sipp.member.pengembangan_prof');
+        //
     }
 
     /**
@@ -68,7 +48,12 @@ class PortofolioKasusController extends Controller
      */
     public function show($id)
     {
-        //
+        $halo = DB::table('pengajuan_administrasi')
+            ->select('*')
+            ->get();
+
+        // return view('sipp.administrasi.home')->with('halo', $halo);
+        return view('sipp.administrasi.home', compact('halo'));
     }
 
     /**

@@ -60,7 +60,7 @@
 
               <!-- Tab panes -->
               {{-- <form method="POST" action="member/tambahsipp"> --}}
-              {!! Form::open(['route' => 'pendidikan_karir.store', 'files'=> true, 'enctype'=>'multipart/form-data']) !!}
+              {!! Form::open(['route' => 'pendidikan_karir.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
                 {{ Form::hidden('id_pengajuan') }}
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="pendidikankarir">
@@ -85,10 +85,10 @@
                                 {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control')) }}
                               </td>
                               <td>
-                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
                                 {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
@@ -98,12 +98,14 @@
                               </td>
                               <td>
                                 <center>
-                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control')) }}
+                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control', 'multiple')) }}
+                                  {{-- <input type="file" name="ijazah[]" class="form-control" multiple> --}}
                                 </center>
                               </td>
                               <td>
                                 <center>
-                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control')) }}
+                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control', 'multiple')) }}
+                                  {{-- <input type="file" name="transkrip[]" class="form-control" multiple> --}}
                                 </center>
                               </td>
                             </tr>
@@ -112,10 +114,10 @@
                                 {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control')) }}
                               </td>
                               <td>
-                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
                                 {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
@@ -125,12 +127,14 @@
                               </td>
                               <td>
                                 <center>
-                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control')) }}
+                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control', 'multiple')) }}
+                                  {{-- <input type="file" name="ijazah[]" class="form-control" multiple> --}}
                                 </center>
                               </td>
                               <td>
                                 <center>
-                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control')) }}
+                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control', 'multiple')) }}
+                                  {{-- <input type="file" name="transkrip[]" class="form-control" multiple> --}}
                                 </center>
                               </td>
                             </tr>
@@ -139,10 +143,10 @@
                                 {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control')) }}
                               </td>
                               <td>
-                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                                {{ Form::text('universitas[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12', 'id' => 'nama_lkp')) }}
+                                {{ Form::text('bidang_ilmu[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
                                 {{ Form::selectRange('tahun_masuk[]', 2018, 1970, array('class' => 'form-control')) }}
@@ -152,12 +156,14 @@
                               </td>
                               <td>
                                 <center>
-                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control')) }}
+                                  {{ Form::file('ijazah[]', null, array('class' => 'form-control', 'multiple')) }}
+                                  {{-- <input type="file" name="ijazah[]" class="form-control" multiple> --}}
                                 </center>
                               </td>
                               <td>
                                 <center>
-                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control')) }}
+                                  {{ Form::file('transkrip[]', null, array('class' => 'form-control', 'multiple')) }}
+                                  {{-- <input type="file" name="transkrip[]" class="form-control" multiple> --}}
                                 </center>
                               </td>
                             </tr>
@@ -344,9 +350,16 @@
                       <br><br><br>
                       
                       <div class="box-footer">
+                        <div class="col-lg-6"><a href="#pendidikankarir" data-toggle="tab">
+                          <button type="button" class="btn btn-primary btn-block" onclick="backwardPembayaran(4);" data-toggle="modal" data-target=".bs-example-modal-lg">Kembali</button></a>
+                        </div>
+                        <div class="col-lg-6">
+                          {{-- <a href="#peng-pro" data-toggle="tab">
+                          <button type="button" class="btn btn-primary btn-block" onclick="forwardPembayaran(4);" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a> --}}
+                          {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
+                        </div>
                         {{-- <input type="hidden" name="submitpendidikan"  value="submitpendidikan"> --}}
                         {{-- <center><button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></center> --}}
-                        {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
                       </div>
                     </div>
                 </div>

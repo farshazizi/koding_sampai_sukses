@@ -37,36 +37,39 @@ Route::get('/sipp/member/pendidikan_karir', function () {
     return view('sipp/member/pendidikan_karir');
 });
 
-// Route::resource('/sipp/member/portofolio_kasus', 'Member\PortofolioKasusController');
+Route::resource('/sipp/member/portofolio_kasus', 'Member\PortofolioKasusController');
 
 Route::get('/sipp/member/portofolio_kasus', function () {
     return view('sipp/member/portofolio_kasus');
 });
 
-// Route::resource('/sipp/member/pengembangan_prof', 'Member\PengembanganProfessionalController');
+Route::resource('/sipp/member/pengembangan_prof', 'Member\PengembanganProfessionalController');
 
 Route::get('/sipp/member/pengembangan_prof', function () {
     return view('sipp/member/pengembangan_prof');
 });
 
-// Route::resource('/sipp/member/finansial', 'Member\FinansialController');
 
-Route::get('/sipp/member/finansial', function () {
-    return view('sipp/member/finansial');
+Route::get('/sipp/member/finalisasi', function () {
+    return view('sipp/member/finalisasi');
 });
 
 // ADMINISTRASI
-Route::get('/sipp/administrasi', function () {
-    return view('sipp/administrasi/index');
-});
+Route::resource('/sipp/administrasi/home', 'Administrasi\HomeController');
+
+// Route::get('/sipp/administrasi/home', function () {
+//     return view('sipp/administrasi/home');
+// });
 
 Route::get('/sipp/administrasi/jadwal_wawancara', function () {
     return view('sipp/administrasi/jadwal_wawancara');
 });
 
-Route::get('/sipp/administrasi/berkas_user', function () {
-    return view('sipp/administrasi/berkas_user');
-});
+Route::resource('/sipp/administrasi/berkas_user', 'Administrasi\BerkasUserController');
+
+// Route::get('/sipp/administrasi/berkas_user', function () {
+//     return view('sipp/administrasi/berkas_user');
+// });
 
 Route::get('/sipp/administrasi/daftar_direkomendasikan', function () {
     return view('sipp/administrasi/daftar_direkomendasikan');

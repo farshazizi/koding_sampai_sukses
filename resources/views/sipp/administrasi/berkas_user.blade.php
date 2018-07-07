@@ -55,10 +55,38 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; ?>
+                            @foreach($halo as $halo)
                             <tr>
-                                <td>1</td>
-                                <td>A</td>
-                                <td><button type="button" class="btn btn-primary">Foto</button></td>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $halo->nama_lengkap }}</td>
+                                <td>
+                                    {{-- <button type="button" class="btn btn-primary">Foto</button> --}}
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Foto
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Berkas Foto</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {{ $halo->foto_pas }}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td><button type="button" class="btn btn-primary">KTP</button></td>
                                 <td><button type="button" class="btn btn-primary">KTA</button></td>
                                 <td><button type="button" class="btn btn-primary">Sertifikat Sebutan</button></td>
@@ -67,45 +95,8 @@
                                 <td><button type="button" class="btn btn-primary">Biaya Pendaftaran</button></td>
                                 <td><button type="button" class="btn btn-primary">Lihat</button></td>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>A</td>
-                                <td><button type="button" class="btn btn-primary">Foto</button></td>
-                                <td><button type="button" class="btn btn-primary">KTP</button></td>
-                                <td><button type="button" class="btn btn-primary">KTA</button></td>
-                                <td><button type="button" class="btn btn-primary">Sertifikat Sebutan</button></td>
-                                <td><button type="button" class="btn btn-primary">Surat Izin</button></td>
-                                <td><button type="button" class="btn btn-primary">Biaya Iuran</button></td>
-                                <td><button type="button" class="btn btn-primary">Biaya Pendaftaran</button></td>
-                                <td><button type="button" class="btn btn-primary">Lihat</button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>A</td>
-                                <td><button type="button" class="btn btn-primary">Foto</button></td>
-                                <td><button type="button" class="btn btn-primary">KTP</button></td>
-                                <td><button type="button" class="btn btn-primary">KTA</button></td>
-                                <td><button type="button" class="btn btn-primary">Sertifikat Sebutan</button></td>
-                                <td><button type="button" class="btn btn-primary">Surat Izin</button></td>
-                                <td><button type="button" class="btn btn-primary">Biaya Iuran</button></td>
-                                <td><button type="button" class="btn btn-primary">Biaya Pendaftaran</button></td>
-                                <td><button type="button" class="btn btn-primary">Lihat</button></td>
-                            </tr>
+                            @endforeach
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Pas Foto</th>
-                                <th>Foto KTP</th>
-                                <th>Foto KTA</th>
-                                <th>Sertifikat Sebutan</th>
-                                <th>Surat Izin</th>
-                                <th>Pembayaran Iuran</th>
-                                <th>Pembayaran Pendaftaran</th>
-                                <th>Berkas Bidang</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>

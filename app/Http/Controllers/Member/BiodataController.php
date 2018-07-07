@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Biodata;
 use Auth;
-use DB;
+use Image;
 
 class BiodataController extends Controller
 {
@@ -125,7 +125,7 @@ class BiodataController extends Controller
         // if ($m_biodata->surat_izin == "") {
         //     $m_biodata->surat_izin = "Belum ada";
         // } else {
-            $photo = $request->file('images');
+            $photo = $request->file('surat_izin');
             $destination = base_path().'/public/images/surat_izin';
             $filename = $photo->getClientOriginalName();
             $photo->move($destination,$filename);
@@ -341,6 +341,7 @@ class BiodataController extends Controller
         $m_biodata->save();
 
         return redirect()->route('pendidikan_karir.store', $m_biodata->id);
+        // return view('sipp.member.pendidikan_karir', compact('m_biodata'));
     }
 
     /**
