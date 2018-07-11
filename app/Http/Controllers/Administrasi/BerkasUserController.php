@@ -15,7 +15,7 @@ class BerkasUserController extends Controller
      */
     public function index()
     {
-        $halo = Biodata::orderby('id')->get(); 
+        $halo = Biodata::orderby('id')->get();
         return view('sipp.administrasi.berkas_user', compact('halo'));
     }
 
@@ -49,23 +49,8 @@ class BerkasUserController extends Controller
     public function show($id)
     {
         $halo = DB::table('pengajuan_administrasi')
-            ->select('*')
-            ->get();
-
-        if ($request->hasFile('foto_pas')) {
-            $img = Biodata::find($id);
-            $path = base_path().'/public/images/foto_pas/'.$img->foto_pas;
-            
-            if (file_exists($path)) {
-                unlink($path);
-            }
-            
-            $photo = $request->file('foto_pas');
-            $destination = base_path().'/public/images/foto_pas/';
-            $filename = $photo->getClientOriginalName();
-            $photo->move($destination,$filename);
-            $foto_pas['foto_pas'] = $filename;
-        }
+            ->select('pengajuan_administrasi.foto_pas', 'pengajuan_administrasi.foto_ktp', 'pengajuan_administrasi.foto_kta', 'pengajuan_administrasi.sertifikat_sebutan', 'pengajuan_administrasi.surat_izin', 'pengajuan_administrasi.bukti_iuran_sipp', 'pengajuan_administrasi.bukti_pembayaran_sipp')
+            ->first();
 
         return view('sipp.administrasi.berkas_user', compact('halo'));
     }

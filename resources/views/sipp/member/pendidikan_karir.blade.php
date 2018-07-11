@@ -80,7 +80,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr id="trpendidikan1" >
+                            <tr id="trpendidikan1">
                               <td>
                                 {{ Form::select('jenjang_pendidikan[]', ['S1' => 'S1', 'S2' => 'S2', 'S3' => 'S3'], null, array('class' => 'form-control')) }}
                               </td>
