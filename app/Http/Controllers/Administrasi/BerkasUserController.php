@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Administrasi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Biodata;
+use App\Member\Pendidikan;
+use App\Member\Pengembangan_Professional;
+use DB;
 
 class BerkasUserController extends Controller
 {
@@ -15,7 +18,8 @@ class BerkasUserController extends Controller
      */
     public function index()
     {
-        $halo = Biodata::orderby('id')->get();
+        $halo = Biodata::orderBy('id')->get();
+        // $halo = Biodata::all();
         return view('sipp.administrasi.berkas_user', compact('halo'));
     }
 
@@ -48,11 +52,15 @@ class BerkasUserController extends Controller
      */
     public function show($id)
     {
-        $halo = DB::table('pengajuan_administrasi')
-            ->select('pengajuan_administrasi.foto_pas', 'pengajuan_administrasi.foto_ktp', 'pengajuan_administrasi.foto_kta', 'pengajuan_administrasi.sertifikat_sebutan', 'pengajuan_administrasi.surat_izin', 'pengajuan_administrasi.bukti_iuran_sipp', 'pengajuan_administrasi.bukti_pembayaran_sipp')
-            ->first();
+        $halo = Pendidikan::where('id_pengajuan', $id)->get();
+        // $halo = DB::table('pengajuan_pendidikan')
+        //     ->join('pengajuan_pengembangan', 'pengajuan_pendidikan.id_pengajuan', '=', 'pengajuan_pengembangan.id_pengajuan')
+        //     ->select('pengajuan_pendidikan.*', 'pengajuan_pengembangan.*')
+        //     // ->where('id_pengajuan', $id)
+        //     ->get();
+        $halos = Pengembangan_Professional::where('id_pengajuan', $id)->get();
 
-        return view('sipp.administrasi.berkas_user', compact('halo'));
+        return view('sipp.administrasi.berkas_user_show', compact('halo', 'halos'));
     }
 
     /**

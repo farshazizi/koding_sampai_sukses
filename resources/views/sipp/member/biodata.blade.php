@@ -382,7 +382,7 @@
 
                     <div class="box-footer">
                       <center>
-                          {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
+                        {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
                       </center>
                     </div>
 

@@ -66,6 +66,7 @@ Route::get('/sipp/administrasi/jadwal_wawancara', function () {
 });
 
 Route::resource('/sipp/administrasi/berkas_user', 'Administrasi\BerkasUserController');
+Route::resource('/sipp/administrasi/berkas_user_show', 'Administrasi\BerkasUserController');
 
 // Route::get('/sipp/administrasi/berkas_user', function () {
 //     return view('sipp/administrasi/berkas_user');
