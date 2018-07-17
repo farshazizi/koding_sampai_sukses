@@ -34,7 +34,9 @@
                   <td>{{ $halo->created_at }}</td>
                   <td>{{ $halo->nama_lengkap }}</td>
                   <td>Menunggu Pengecekan Sekretariat</td>
-                  <td><a href="{{ route('home.show', $halo->id) }}"><button type="button" class="btn btn-primary">Cek Berkas</button></a></td>
+                  <td>
+                    <center><a href="{{ route('ubahberkas.show', $halo->id) }}"><button type="button" class="btn btn-primary">Cek Berkas</button></a></center>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>

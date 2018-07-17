@@ -25,7 +25,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="/sipp/bidang/jadwal_wawancara" class="nav-link nav-toggle">
+            <a href="/sipp/bidang/jadwalwawancara" class="nav-link nav-toggle">
                 <i class="icon-user"></i>
                 <span class="title">Jadwal Wawancara</span>
                 <span class="arrow"></span>

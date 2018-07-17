@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Administrasi;
 
-use App\Administrasi\BerkasUser;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Member\Biodata;
 
-class BerkasUserController extends Controller
+class JadwalWawancaraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class BerkasUserController extends Controller
      */
     public function index()
     {
-        //
+        $halo = Biodata::orderby('id')->get();
+        return view('sipp.administrasi.jadwal_wawancara', compact('halo'));
     }
 
     /**
@@ -41,21 +43,22 @@ class BerkasUserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Administrasi\BerkasUser  $berkasUser
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(BerkasUser $berkasUser)
+    public function show($id)
     {
-        //
+        $halo = Biodata::where('id', $id)->get();
+        return view('sipp.administrasi.jadwal_wawancara', compact('halo'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Administrasi\BerkasUser  $berkasUser
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(BerkasUser $berkasUser)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +67,10 @@ class BerkasUserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Administrasi\BerkasUser  $berkasUser
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BerkasUser $berkasUser)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +78,10 @@ class BerkasUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Administrasi\BerkasUser  $berkasUser
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BerkasUser $berkasUser)
+    public function destroy($id)
     {
         //
     }

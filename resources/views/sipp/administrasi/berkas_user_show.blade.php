@@ -44,6 +44,7 @@
 
 <div class="page-content-wrapper">
     <div class="page-content">
+        <h2 class="page-title">Pemeriksaan Form SIPP</h2>
         <div id="wrapper">
             <div id="page-wrapper">
                 <div class="row">
@@ -60,11 +61,11 @@
 
                             <div class="panel-body">
                                 <ul class="nav nav-tabs">
-                                    <li class="active tablinks"><a data-toggle="tab" onclick="openCity(event, 'London')" id="defaultOpen">Pendidikan - Karir</a></li>
-                                    <li class="tablinks"><a data-toggle="tab"  onclick="openCity(event, 'Paris')">Pengembangan Professional</a></li>
+                                    <li class="active tablinks"><a data-toggle="tab" onclick="openCity(event, 'PendidikanKarir')" id="defaultOpen">Pendidikan - Karir</a></li>
+                                    <li class="tablinks"><a data-toggle="tab"  onclick="openCity(event, 'PengembanganProfessional')">Pengembangan Professional</a></li>
                                 </ul>
 
-                                <div id="London" class="tabcontent">
+                                <div id="PendidikanKarir" class="tabcontent">
                                     <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered table-hover">
@@ -146,7 +147,7 @@
                                     </div>
                                 </div>
 
-                                <div id="Paris" class="tabcontent">
+                                <div id="PengembanganProfessional" class="tabcontent">
                                     <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered table-hover">

@@ -81,11 +81,10 @@
                         </div>
                     </div>
                     <hr>
-              {{-- {{ Form::close() }} --}}
+                    
                     <div class="box-footer">
                       <div class="col-lg-6"><a href="/sipp/member/biodata" data-toggle="tab"><button type="button" class="btn btn-primary btn-block" onclick="backwardPembayaran(2);" data-toggle="modal" data-target=".bs-example-modal-lg">Kembali</button></a></div>
                       <div class="col-lg-6">
-                        {{-- <a href="#pendidikankarir" data-toggle="tab"><button type="button" class="btn btn-primary btn-block" onclick="forwardPembayaran(2);" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a> --}}
                         {{ Form::submit('Lanjutkan', array('class' => 'btn btn-primary btn-block')) }}
                       </div>
 

@@ -50,66 +50,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i=1; ?>
+                        @foreach($halo as $halo)
                         <tr>
-                            <td>1</td>
-                            <td>10 Juni 2018</td>
-                            <td>A</td>
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $halo->created_at }}</td>
+                            <td>{{ $halo->nama_lengkap }}</td>
                             <td>Menunggu Pengecekan Ulang Tim Bidang</td>
                             <td>
-                                <button type="button" class="btn btn-primary">Ubah Berkas</button>
-                                <button type="button" class="btn btn-primary">Cek Berkas</button>
+                                <a href="{{ route('tb3_ubahberkas.show', $halo->id) }}"><button type="button" class="btn btn-primary">Ubah Berkas</button></a>
+                                <a href="{{ route('buatjadwalwawancara.show', $halo->id) }}"><button type="button" class="btn btn-primary">Tambah Jadwal Wawancara</button></a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>10 Juni 2018</td>
-                            <td>A</td>
-                            <td>Menunggu Pengecekan Ulang Tim Bidang</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Ubah Berkas</button>
-                                <button type="button" class="btn btn-primary">Cek Berkas</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>10 Juni 2018</td>
-                            <td>A</td>
-                            <td>Menunggu Pengecekan Ulang Tim Bidang</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Ubah Berkas</button>
-                                <button type="button" class="btn btn-primary">Cek Berkas</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>10 Juni 2018</td>
-                            <td>A</td>
-                            <td>Menunggu Pengecekan Ulang Tim Bidang</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Ubah Berkas</button>
-                                <button type="button" class="btn btn-primary">Cek Berkas</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>10 Juni 2018</td>
-                            <td>A</td>
-                            <td>Menunggu Pengecekan Ulang Tim Bidang</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Ubah Berkas</button>
-                                <button type="button" class="btn btn-primary">Cek Berkas</button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal</th>
-                            <th>Nama</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

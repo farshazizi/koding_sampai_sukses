@@ -53,11 +53,6 @@ class BerkasUserController extends Controller
     public function show($id)
     {
         $halo = Pendidikan::where('id_pengajuan', $id)->get();
-        // $halo = DB::table('pengajuan_pendidikan')
-        //     ->join('pengajuan_pengembangan', 'pengajuan_pendidikan.id_pengajuan', '=', 'pengajuan_pengembangan.id_pengajuan')
-        //     ->select('pengajuan_pendidikan.*', 'pengajuan_pengembangan.*')
-        //     // ->where('id_pengajuan', $id)
-        //     ->get();
         $halos = Pengembangan_Professional::where('id_pengajuan', $id)->get();
 
         return view('sipp.administrasi.berkas_user_show', compact('halo', 'halos'));

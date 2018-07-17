@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $halo = Biodata::orderby('id')->get();
-        return view('sipp.administrasi.home', compact('halo'));
+        return view('sipp.administrasi.index', compact('halo'));
     }
 
     /**
@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return view('sipp.administrasi.home');
+        // return view('sipp.administrasi.home');
     }
 
     /** 
@@ -49,11 +49,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        // $halo = DB::table('pengajuan_administrasi')
-        //     ->select('')
-        //     ->get();
-        $halo = Biodata::find($id);
-
+        $halo = Biodata::where('id', $id)->get();
         return view('sipp.administrasi.home_show', compact('halo'));
     }
 
