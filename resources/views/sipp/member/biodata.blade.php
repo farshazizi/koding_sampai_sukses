@@ -60,7 +60,7 @@
             </ul>
 
             <!-- Tab panes -->
-                      {!! Form::open(['route' => 'biodata.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['route' => 'biodata.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
             {{-- {!! Form::open(array('route' => 'biodata.store')) !!} --}}
             
               <div class="tab-content">

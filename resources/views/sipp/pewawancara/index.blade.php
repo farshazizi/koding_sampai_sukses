@@ -3,7 +3,7 @@
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar-wrapper">
     <!-- BEGIN SIDEBAR -->
-    @include('sipp/wawancara/_sidebar')
+    @include('sipp/pewawancara/_sidebar')
     <!-- END SIDEBAR -->
 </div>
 <!-- END SIDEBAR -->
@@ -53,69 +53,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i=1; ?>
+                        @foreach($halo as $halo)
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>A</td>
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $halo->id }}</td>
+                            <td>{{ $halo->nama_lengkap }}</td>
                             <td>15 Juni 2018</td>
                             <td>Surabyaa</td>
                             <td>ABC</td>
                             <td>DEF</td>
-                            <td></td>
+                            <td>
+                                <a href="{{ route('dowawancara.show', $halo->id) }}"><button type="button" class="btn btn-primary">Mulai Wawancara</button></a>
+                                {{-- <a href="/sipp/pewawancara/dowawancara"><button type="button" class="btn btn-primary">Mulai Wawancara</button></a> --}}
+                            </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>A</td>
-                            <td>15 Juni 2018</td>
-                            <td>Surabyaa</td>
-                            <td>ABC</td>
-                            <td>DEF</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>A</td>
-                            <td>15 Juni 2018</td>
-                            <td>Surabyaa</td>
-                            <td>ABC</td>
-                            <td>DEF</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>A</td>
-                            <td>15 Juni 2018</td>
-                            <td>Surabyaa</td>
-                            <td>ABC</td>
-                            <td>DEF</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>A</td>
-                            <td>15 Juni 2018</td>
-                            <td>Surabyaa</td>
-                            <td>ABC</td>
-                            <td>DEF</td>
-                            <td></td>
-                        </tr>
+                        @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>ID Pengaju</th>
-                            <th>Nama</th>
-                            <th>Waktu</th>
-                            <th>Tempat</th>
-                            <th>Pewawancara 1</th>
-                            <th>Pewawancara 2</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

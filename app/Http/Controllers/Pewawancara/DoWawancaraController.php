@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Tim_Bidang3;
+namespace App\Http\Controllers\Pewawancara;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +10,7 @@ use App\Member\Karir;
 use App\Member\Kasus;
 use App\Member\Pengembangan_Professional;
 
-class HomeController extends Controller
+class DoWawancaraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $halo = Biodata::orderby('id')->get();
-        return view('sipp.tim_bidang3.index', compact('halo'));
+        // $halo = Biodata::orderby('id')->get();
+        // return view('sipp.pewawancara.dowawancara', compact('halo'));
+        return view('sipp.pewawancara.dowawancara');
     }
 
     /**
@@ -41,7 +42,10 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // store in the database
+        // $m_biodata = new Biodata;
+        // $m_biodata->email                           = $request->email;
+        // $m_biodata->nama_lengkap                    = $request->nama_lengkap;
     }
 
     /**
@@ -58,7 +62,7 @@ class HomeController extends Controller
         $halo4 = Kasus::where('id_pengajuan', $id)->get();
         $halo5 = Pengembangan_Professional::where('id_pengajuan', $id)->get();
 
-        return view('sipp.tim_bidang3.index_ubahBerkas', compact('halo', 'halo2', 'halo3', 'halo4', 'halo5'));
+        return view('sipp.pewawancara.dowawancara', compact('halo', 'halo2', 'halo3', 'halo4', 'halo5'));
     }
 
     /**
@@ -81,19 +85,7 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // store in the database
-        for ($i=0;$i<count($request->jenjang_pendidikan);$i++) {
-            $kas = Kasus::find($id);
-            $pend->id_pengajuan         = $request->id_pengajuan;
-            $pend->checklist            = $request->checklist;
-
-            $pend->jenjang_pendidikan   = $request->jenjang_pendidikan[$i];
-            $pend->universitas          = $request->universitas[$i];
-            $pend->bidang_ilmu          = $request->bidang_ilmu[$i];
-            $pend->tahun_masuk          = $request->tahun_masuk[$i];
-            $pend->tahun_lulus          = $request->tahun_lulus[$i];
-            $pend->tahun_lulus          = $request->tahun_lulus[$i];
-        }
+        //
     }
 
     /**
@@ -105,10 +97,5 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function buatjadwalwawancara_show($id) {
-        $halo = Biodata::where('id', $id)->get();
-        return view('sipp.tim_bidang3.index_ubahBerkas', compact('halo'));
     }
 }
