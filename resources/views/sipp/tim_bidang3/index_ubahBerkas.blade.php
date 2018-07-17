@@ -39,7 +39,7 @@
 }
 </style>
 <div class="page-sidebar-wrapper">
-  @include('sipp/member/_sidebar')
+  @include('sipp/tim_bidang3/_sidebar')
 </div>
 <div class="page-content-wrapper">
   <div class="page-content">
@@ -61,13 +61,13 @@
               <li class="tablinks"><a data-toggle="tab"  onclick="openCity(event, 'PengembanganProfessional')">Pengembangan Professional</a></li>
               <li class="tablinks"><a data-toggle="tab"  onclick="openCity(event, 'Feedback')">Feedback</a></li>
 
-              <div class="top-menu">
+              {{-- <div class="top-menu">
                 <ul class="nav navbar-nav pull-right">
                   <li class="dropdown dropdown-quick-sidebar-toggler">
                     <button type="button" class="btn btn-sm" style="background-color: orange; color: white">Save to draft</button>
                   </li>
                 </ul>
-              </div>
+              </div> --}}
             </ul>
 
             {{-- <div class="tab-content"> --}}
@@ -660,125 +660,144 @@
                           </thead>
                           <tbody>
                             <?php $i=1; ?>
-                            {{-- @foreach($halo3 as $halo3) --}}
+                            @foreach($halo3 as $halo3)
                             <tr id="trkarir1" >
                               <td><center>{{ $i++ }}</center></td>
                               <td>
-                                {{ Form::text('nama_organisasi[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                                {{ Form::text('nama_organisasi[]', $halo3->nama_organisasi, array('class' => 'form-control col-md-7 col-xs-12')) }}
                                 {{-- <input type="text" name="nama_organisasi" class="form-control col-md-7 col-xs-12"> --}}
                               </td>
                               <td>
-                                {{ Form::text('jabatan[]', null, array('class' => 'form-control col-md-7 col-xs-12')) }}
+                                {{ Form::text('jabatan[]', $halo3->jabatan, array('class' => 'form-control col-md-7 col-xs-12')) }}
                               </td>
                               <td>
-                                {{ Form::selectRange('tahun_masukKarir[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{ Form::selectRange('tahun_masukKarir[]', 2018, 1970, $halo3->tahun_masukKarir, array('class' => 'form-control')) }}
                               </td>
                               <td>
-                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, array('class' => 'form-control')) }}
+                                {{ Form::selectRange('tahun_keluar[]', 2018, 1970, $halo3->tahun_keluar, array('class' => 'form-control')) }}
                               </td>
                             </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
                           </tbody>
                         </table>
                         {{-- <center><button id="btntambahkarir" type="button" class="btn btn-primary btn" onclick="tambahKarir();" data-toggle="modal" data-target=".bs-example-modal-lg">Tambah Karir</button></center> --}}
                       </div>
                 </div>
               </div>
-
+              
               <div id="PortofolioKasus" class="tabcontent">
                 <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                   <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                       <thead>
                         <tr>
-                          <th class="column-title">No. </th>
-                          <th class="column-title">Tahun </th>
-                          <th class="column-title">Tujuan Pemeriksaan </th>
-                          <th class="column-title">Nama Lembaga </th>
-                          <th class="column-title">Tindakan </th>
+                          <th class="column-title">No.</th>
+                          <th class="column-title">Tahun</th>
+                          <th class="column-title">Tujuan Pemeriksaan</th>
+                          <th class="column-title">Nama Lembaga</th>
+                          <th class="column-title">Tindakan</th>
+                          <th class="column-title">Feedback</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php $i=1; ?>
-                        @foreach ($halo3 as $halo3)
+                        @foreach ($halo4 as $halo4)
                         <tr id="trkasus1">
                           <td>{{ $i++ }}</td>
                           <td>
-                              {{ Form::selectRange('tahun[]', 2018, 1970, $halo3->tahun, array('class' => 'form-control')) }}
+                              {{ Form::selectRange('tahun[]', 2018, 1970, $halo4->tahun, array('class' => 'form-control')) }}
                           </td>
                           <td>
-                              {{ Form::textarea('tujuan[]', $halo3->tujuan, array('class' => 'form-control', 'style' => 'height: 80px')) }}
+                              {{ Form::textarea('tujuan[]', $halo4->tujuan, array('class' => 'form-control', 'style' => 'height: 80px')) }}
                           </td>
                           <td>
-                              {{ Form::textarea('nama_lembaga[]', $halo3->nama_lembaga, array('class' => 'form-control', 'style' => 'height: 80px')) }}
+                              {{ Form::textarea('nama_lembaga[]', $halo4->nama_lembaga, array('class' => 'form-control', 'style' => 'height: 80px')) }}
                           </td>
                           <td>
-                              {{ Form::textarea('tindakan[]', $halo3->tindakan, array('class' => 'form-control', 'style' => 'height: 80px')) }}
+                              {{ Form::textarea('tindakan[]', $halo4->tindakan, array('class' => 'form-control', 'style' => 'height: 80px')) }}
                           </td>
+                          <td>a</td>
                         </tr>
                         @endforeach
                       </tbody>
                     </table>
-                    <center><button id="btntambahkasus" type="button" class="btn btn-primary btn" onclick="tambahKasus();" data-toggle="modal" data-target=".bs-example-modal-lg">Tambah Kasus</button></center>
+                    {{-- <center><button id="btntambahkasus" type="button" class="btn btn-primary btn" onclick="tambahKasus();" data-toggle="modal" data-target=".bs-example-modal-lg">Tambah Kasus</button></center> --}}
 
-                    <br><br><br>
+                    <br>
+                    <div class="top-menu">
+                      <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                          <a href="{{ route('tb3_ubahberkas.update', $halo4->id) }}"><button type="button" class="btn btn-sm" style="background-color: orange; color: white">Save to draft</button></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <br><br>
                   </div>
                 </div>
               </div>
 
               <div id="PengembanganProfessional" class="tabcontent">
                 <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                          <thead>
-                            <tr>
-                              <th class="column-title"><center>No.</th>
-                              <th class="column-title"><center>Tahun</th>
-                              <th class="column-title"><center>Nama Kegiatan</th>
-                              <th class="column-title"><center>Nama Penyelenggara/Organisasi</th>
-                              <th class="column-title"><center>Waktu/Lama</th>
-                              <th class="column-title"><center>Bukti Foto Sertifikat</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php $i = 1; ?>
-                            @foreach($halo5 as $halo5)
-                            <tr>
-                              <td><center>{{ $i++ }}</center></td>
-                              <td><center>{{ $halo5->tahun }}</center></td>
-                              <td><center>{{ $halo5->nama_kegiatan }}</center></td>
-                              <td><center>{{ $halo5->nama_penyelenggara }}</center></td>
-                              <td><center>{{ $halo5->durasi }}</center></td>
-                              <td>
-                                <center>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foto_bukti<?php echo $i; ?>">View</button>
-                                </center>
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th class="column-title"><center>No.</th>
+                          <th class="column-title"><center>Tahun</th>
+                          <th class="column-title"><center>Nama Kegiatan</th>
+                          <th class="column-title"><center>Nama Penyelenggara/Organisasi</th>
+                          <th class="column-title"><center>Waktu/Lama</th>
+                          <th class="column-title"><center>Bukti Foto Sertifikat</th>
+                          <th class="column-title"><center>Feedback</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $i = 1; ?>
+                        @foreach($halo5 as $halo5)
+                        <tr>
+                          <td><center>{{ $i++ }}</center></td>
+                          <td><center>{{ $halo5->tahun }}</center></td>
+                          <td><center>{{ $halo5->nama_kegiatan }}</center></td>
+                          <td><center>{{ $halo5->nama_penyelenggara }}</center></td>
+                          <td><center>{{ $halo5->durasi }}</center></td>
+                          <td>
+                            <center>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foto_bukti<?php echo $i; ?>">View</button>
+                            </center>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="foto_bukti<?php echo $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Berkas Foto</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <img src="/images/foto_bukti/{{ $halo5->foto_bukti }}" style="width: 75%; height: 50%">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="foto_bukti<?php echo $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Berkas Foto</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="/images/foto_bukti/{{ $halo5->foto_bukti }}" style="width: 75%; height: 50%">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
-                              </td>
-                            </tr>
-                            @endforeach
-                          </tbody>
-                        </table>
+                            </div>
+                          </td>
+                          <td></td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                    <div class="top-menu">
+                      <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                          <button type="button" class="btn btn-sm" style="background-color: orange; color: white">Save to draft</button>
+                        </li>
+                      </ul>
                     </div>
+                  </div>
                 </div>
               </div>
             {{-- </div> --}}

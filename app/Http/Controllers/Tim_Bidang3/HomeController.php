@@ -55,7 +55,7 @@ class HomeController extends Controller
         $halo = Biodata::where('id', $id)->get();
         $halo2 = Pendidikan::where('id_pengajuan', $id)->get();
         $halo3 = Karir::where('id_pengajuan', $id)->get();
-        // $halo4 = Kasus::where('id_pengajuan', $id)->get();
+        $halo4 = Kasus::where('id_pengajuan', $id)->get();
         // $halo4 = Kasus::all();
         $halo5 = Pengembangan_Professional::where('id_pengajuan', $id)->get();
 
@@ -82,7 +82,19 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // store in the database
+        for ($i=0;$i<count($request->jenjang_pendidikan);$i++) {
+            $kas = Kasus::find($id);
+            $pend->id_pengajuan         = $request->id_pengajuan;
+            $pend->checklist            = $request->checklist;
+
+            $pend->jenjang_pendidikan   = $request->jenjang_pendidikan[$i];
+            $pend->universitas          = $request->universitas[$i];
+            $pend->bidang_ilmu          = $request->bidang_ilmu[$i];
+            $pend->tahun_masuk          = $request->tahun_masuk[$i];
+            $pend->tahun_lulus          = $request->tahun_lulus[$i];
+            $pend->tahun_lulus          = $request->tahun_lulus[$i];
+        }
     }
 
     /**

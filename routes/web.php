@@ -101,8 +101,8 @@ Route::get('/sipp/administrasi/edit_akun', function () {
 // TIM BIDANG 3
 Route::get('/sipp/bidang/', 'Tim_Bidang3\HomeController@index');
 Route::resource('/sipp/bidang/tb3_ubahberkas', 'Tim_Bidang3\HomeController');
-Route::get('/sipp/bidang/tb3_buatjadwalwawancara', 'Tim_Bidang3\HomeController@buatjadwalwawancara_show')->name('buatjadwalwawancara.show');
-Route::post('/sipp/bidang/tb3_buatjadwalwawancara', 'Tim_Bidang3\HomeController@buatjadwalwawancara_store')->name('buatjadwalwawancara.store');
+// Route::get('/sipp/bidang/tb3_buatjadwalwawancara', 'Tim_Bidang3\HomeController@buatjadwalwawancara_show')->name('buatjadwalwawancara.show');
+// Route::post('/sipp/bidang/tb3_buatjadwalwawancara', 'Tim_Bidang3\HomeController@buatjadwalwawancara_store')->name('buatjadwalwawancara.store');
 // Route::get('/sipp/bidang', function () {
 //     return view('sipp/tim_bidang3/index');
 // });
