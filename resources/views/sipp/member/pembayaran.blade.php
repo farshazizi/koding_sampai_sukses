@@ -59,8 +59,7 @@
               </ul>
 
               <!-- Tab panes -->
-              {{-- <form method="POST" action="member/tambahsipp" enctype="multipart/form-data"> --}}
-              {!! Form::open(['route' => ['biodata.update', $m_biodata->id], 'method' => 'PUT', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
+              {!! Form::open(['route' => ['biodata.update', $m_biodata->id_user], 'method' => 'PUT', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="pembayaran">
                     <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
@@ -92,7 +91,6 @@
                   </div>
                 </div>
               {{ Form::close() }}
-              {{-- </form> --}}
             </div>
             <!-- /.panel-body -->
           </div>

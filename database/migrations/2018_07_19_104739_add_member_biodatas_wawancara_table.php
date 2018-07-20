@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPengembangansTable extends Migration
+class AddMemberBiodatasWawancaraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddPengembangansTable extends Migration
      */
     public function up()
     {
-        Schema::table('pengajuan_pengembangan', function (Blueprint $table) {
-            $table->foreign('id_pengajuan')->references('id')->on('pengajuan_administrasi')->onUpdate('cascade')->onDelete('cascade');
+        Schema::table('pengajuan_administrasi', function (Blueprint $table) {
+            $table->foreign('id_user')->references('id_user')->on('pengajuan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

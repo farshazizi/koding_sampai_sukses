@@ -33,9 +33,9 @@ Route::get('/sipp/member/pembayaran', function () {
 
 Route::resource('/sipp/member/pendidikan_karir', 'Member\PendidikanKarirController');
 
-Route::get('/sipp/member/pendidikan_karir', function () {
-    return view('sipp/member/pendidikan_karir');
-});
+// Route::get('/sipp/member/pendidikan_karir', function () {
+//     return view('sipp/member/pendidikan_karir');
+// });
 
 Route::resource('/sipp/member/portofolio_kasus', 'Member\PortofolioKasusController');
 
@@ -49,6 +49,7 @@ Route::get('/sipp/member/pengembangan_prof', function () {
     return view('sipp/member/pengembangan_prof');
 });
 
+Route::resource('/sipp/member/finalisasi', 'Member\FinalisasiController');
 
 Route::get('/sipp/member/finalisasi', function () {
     return view('sipp/member/finalisasi');

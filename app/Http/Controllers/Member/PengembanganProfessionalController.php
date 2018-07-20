@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Pengembangan_Professional;
+use Image;
 
 class PengembanganProfessionalController extends Controller
 {
@@ -15,7 +16,7 @@ class PengembanganProfessionalController extends Controller
      */
     public function index()
     {
-        //
+        return view('sipp.member.pengembangan_prof');
     }
 
     /**
@@ -25,7 +26,7 @@ class PengembanganProfessionalController extends Controller
      */
     public function create()
     {
-        return view('sipp.member.pengembangan_prof');
+        //
     }
 
     /**
@@ -40,7 +41,8 @@ class PengembanganProfessionalController extends Controller
         for ($i=0;$i<count($request->nama_kegiatan);$i++) {
             $peng_prof = new Pengembangan_Professional;
             
-            $peng_prof->id_pengajuan         = $request->id_pengajuan;
+            // $peng_prof->id_pengajuan         = $request->id_pengajuan;
+            $peng_prof->id_user              = $request->id_user;
             $peng_prof->checklist            = $request->checklist;
 
             $peng_prof->tahun                = $request->tahun[$i]; 

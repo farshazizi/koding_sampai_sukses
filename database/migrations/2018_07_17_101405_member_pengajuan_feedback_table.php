@@ -18,7 +18,7 @@ class MemberPengajuanFeedbackTable extends Migration
             $table->integer('id_pengajuan')->unsigned()->nullable();
             $table->string('kode_feedback', 45)->nullable();
             $table->string('catatan')->nullable();
-            $table->integer('feedbacker', 11)->nullable();
+            $table->integer('feedbacker')->nullable();
             $table->tinyInteger('is_viewed')->nullable();
             $table->timestamps();
         });

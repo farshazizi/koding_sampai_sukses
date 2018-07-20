@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Member;
+namespace App\Administrasi;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Karir extends Model
+class PengajuanKarir extends Model
 {
-    protected $table = 'users_karir';
+    protected $table = 'pengajuan_karir';
 
 	public $primaryKey = 'id_karir';	
 
     public $fillable = [
-        'id_user',
+        'id_pengajuan',
         'nama_organisasi',
         'jabatan',
         'tahun_masukKarir',

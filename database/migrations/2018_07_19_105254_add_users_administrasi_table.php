@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUsersKasusTable extends Migration
+class AddUsersAdministrasiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddUsersKasusTable extends Migration
      */
     public function up()
     {
-        Schema::table('users_kasus', function (Blueprint $table) {
+        Schema::table('users_administrasi', function (Blueprint $table) {
             $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }

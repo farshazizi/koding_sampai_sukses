@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Member;
+namespace App\Administrasi;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Biodata extends Model
+class PengajuanAdministrasi extends Model
 {
-    protected $table = 'users_administrasi';
+    protected $table = 'pengajuan_administrasi';
 
-	public $primaryKey = 'id_user';	
+	public $primaryKey = 'id_pengajuan';	
 
     public $fillable = [
+        'id_user',
         'email',
         'nama_lengkap',
         'foto_pas',

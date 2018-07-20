@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pendidikan extends Model
 {
-    protected $table = 'pengajuan_pendidikan';
+    protected $table = 'users_pendidikan';
 
-	public $primaryKey = 'id';	
+	public $primaryKey = 'id_pendidikan';	
 
     public $fillable = [
-        'id_pengajuan',
+        'id_user',
         'jenjang_pendidikan',
         'universitas',
         'bidang_ilmu',

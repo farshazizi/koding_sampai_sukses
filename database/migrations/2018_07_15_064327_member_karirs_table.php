@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MemberKasusTable extends Migration
+class MemberKarirsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class MemberKasusTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengajuan_kasus', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('pengajuan_karir', function (Blueprint $table) {
+            $table->increments('id_karir');
             $table->integer('id_pengajuan')->unsigned()->nullable();
-            $table->string('tahun')->nullable();
-            $table->string('tujuan')->nullable();
-            $table->string('nama_lembaga')->nullable();
-            $table->string('tindakan')->nullable();
+            $table->string('nama_organisasi')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('tahun_masukKarir')->nullable();
+            $table->string('tahun_keluar')->nullable();
             $table->string('checklist')->nullable();
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class MemberKasusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kasuss');
+        Schema::dropIfExists('pengajuan_karir');
     }
 }

@@ -55,7 +55,10 @@
                 <div class="panel-body" style="background-color: white">
                   <div class="col-lg-4">
                     <div style="height: 500px; width: auto; border: 1px solid;">
-                      <center><img src=" " style="max-height: 500px; max-width: auto;" ></center>
+                      <center>
+                        <img src="" style="max-height: 500px; max-width: auto;" >
+                        {{-- <img src="/images/foto_pas/{{ $halo->foto_pas }}" style="max-height: 500px; max-width: auto;"> --}}
+                      </center>
                     </div>
                   </div>
 
@@ -64,17 +67,24 @@
                     <h4>NIK   : 20120072</h4>
                     <br>
                     <h5> Catatan Feedback</h5>
-                    <textarea id="editor1" name="catatan" rows="10" cols="80" placeholder="Tuliskan sesuatu disini"></textarea>
+                    {!! Form::open(['route' => ['ubahberkas.update', $halo->id_user], 'method' => 'PUT', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
+                    {{-- <textarea id="editor1" name="catatan" rows="10" cols="80" placeholder="Tuliskan sesuatu disini"></textarea> --}}
+                    {{ Form::textarea('catatan', null, array('class' => 'form-control', 'rows' => '10', 'cols' => '80', 'placeholder' => 'Tuliskan sesuatu disini')) }}
                     <br><br>
                     <div>
-                      <select class="form-control" name="feedback" required>
+                      {{-- <select class="form-control" name="feedback" required>
                         <option value="" disabled selected>-- Pilih Status Pengajuan --</option>
                         <option value="3">Berkas dikonfirmasi. Melanjutkan pengecekan Tim Bidang.</option>
                         <option value="1">Berkas tidak memenuhi syarat. Menginstruksikan Pengaju memperbaiki berkas.</option>
-                      </select>
+                      </select> --}}
+                      {{ Form::select('kode_feedback', ['' => '-- Pilih Status Pengajuan --', '3' => 'Berkas dikonfirmasi. Melanjutkan pengecekan Tim Bidang.', '1' => 'Berkas tidak memenuhi syarat. Menginstruksikan Pengaju memperbaiki berkas.'], null, array('class' => 'form-control', 'required')) }}
                     </div>
                     <br>
-                    <center><button type="submit" class="btn btn-primary btn-block">Kirim Feedback, Update Checklist Administrasi, dan Update Data</button></center>
+                    <center>
+                      {{-- <button type="submit" class="btn btn-primary btn-block">Kirim Feedback, Update Checklist Administrasi, dan Update Data</button> --}}
+                      {{ Form::submit('Kirim Feedback, Update Checklist Administrasi, dan Update Data', array('class' => 'btn btn-primary btn-block')) }}
+                    </center>
+                    {!! Form::close() !!}
                   </div>
                 </div>
                 <br>
@@ -596,24 +606,24 @@
                       <table class="table table-striped table-bordered table-hover">
                         <thead>
                           <tr>
-                            <th class="column-title"><center>No</th>
-                            <th class="column-title"><center>Tanggal</th>
-                            <th class="column-title"><center>Feedback</th>
-                            <th class="column-title"><center>Penilai</th>
-                            <th class="column-title"><center>Catatan</th>
+                            <th><center>No</th>
+                            <th><center>Tanggal</th>
+                            <th><center>Feedback</th>
+                            <th><center>Penilai</th>
+                            <th><center>Catatan</th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php $i = 1; ?>
-                          {{-- @foreach($halo as $halo) --}}
+                          @foreach($halo2 as $halo2)
                           <tr>
                             <td><center>{{ $i++ }}</center></td>
+                            <td><center>{{ $halo2->created_at }}</center></td>
                             <td><center></center></td>
                             <td><center></center></td>
-                            <td><center></center></td>
-                            <td><center></center></td>
+                            <td><center>{{ $halo2->catatan }}</center></td>
                           </tr>
-                          {{-- @endforeach --}}
+                          @endforeach
                         </tbody>
                       </table>
                     </div>

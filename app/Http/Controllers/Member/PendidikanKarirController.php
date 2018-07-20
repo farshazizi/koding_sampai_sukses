@@ -17,7 +17,7 @@ class PendidikanKarirController extends Controller
      */
     public function index()
     {
-        //
+        return view('sipp.member.pendidikan_karir');
     }
 
     /**
@@ -27,7 +27,7 @@ class PendidikanKarirController extends Controller
      */
     public function create()
     {
-        return view('sipp.member.pendidikan_karir');
+        // return view('sipp.member.pendidikan_karir');
     }
 
     /**
@@ -42,7 +42,8 @@ class PendidikanKarirController extends Controller
         for ($i=0;$i<count($request->jenjang_pendidikan);$i++) {
             $pend = new Pendidikan;
             
-            $pend->id_pengajuan         = $request->id_pengajuan;
+            // $pend->id_pengajuan         = $request->id_pengajuan;
+            $pend->id_user              = $request->id_user;
             $pend->checklist            = $request->checklist;
 
             $pend->jenjang_pendidikan   = $request->jenjang_pendidikan[$i]; 
@@ -115,14 +116,6 @@ class PendidikanKarirController extends Controller
                 }
             }
 
-            // if ($request->hasFile('transkrip'.$i)) {
-            //     $image = $request->file('transkrip'.$i);
-            //     $filename = $image->getClientOriginalExtension();
-            //     $location = public_path('/images/transkrip/'.$filename);
-            //     Image::make($image)->save($location);
-            //     $pend->transkrip[$i]    = $filename;
-            // }
-
             if ($files = $request->file('transkrip')) {
                 foreach ($files as $file) {
                     $filename = $file->getClientOriginalName();
@@ -138,7 +131,7 @@ class PendidikanKarirController extends Controller
         for ($i=0;$i<count($request->nama_organisasi);$i++) {
             $kar = new Karir;
             
-            $kar->id_pengajuan           = $request->id_pengajuan;
+            $kar->id_user                = $request->id_user;
             $kar->checklist              = $request->checklist;
 
             $kar->nama_organisasi        = $request->nama_organisasi[$i];
@@ -151,11 +144,8 @@ class PendidikanKarirController extends Controller
 
 
         // redirect to another page
-        // return redirect()->route('biodata.update');
         return redirect('sipp/member/portofolio_kasus');
         // return redirect()->route('portofolio.store', $pend->id);
-        // return redirect()->route('biodata.', $pend->id);
-        // return view('sipp.member.pembayaran');
     }
 
     /**

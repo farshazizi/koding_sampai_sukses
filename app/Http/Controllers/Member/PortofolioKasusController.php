@@ -15,7 +15,7 @@ class PortofolioKasusController extends Controller
      */
     public function index()
     {
-        //
+        return view('sipp.member.portofolio_kasus');
     }
 
     /**
@@ -25,7 +25,7 @@ class PortofolioKasusController extends Controller
      */
     public function create()
     {
-        return view('sipp.member.portofolio_kasus');
+        //
     }
 
     /**
@@ -40,7 +40,8 @@ class PortofolioKasusController extends Controller
         for ($i=0;$i<count($request->tujuan);$i++) {
             $kas = new Kasus;
             
-            $kas->id_pengajuan      = $request->id_pengajuan;
+            // $kas->id_pengajuan      = $request->id_pengajuan;
+            $kas->id_user           = $request->id_user;
             $kas->checklist         = $request->checklist;
 
             $kas->tahun             = $request->tahun[$i]; 

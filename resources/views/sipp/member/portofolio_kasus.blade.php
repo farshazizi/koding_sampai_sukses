@@ -61,7 +61,8 @@
                     <!-- Tab panes -->
                     {{-- <form method="POST" action="member/tambahsipp"> --}}
                     {!! Form::open(['route' => 'portofolio_kasus.store']) !!}
-                    {{ Form::hidden('id_pengajuan') }}
+                    {{-- {{ Form::hidden('id_pengajuan') }} --}}
+                    {{ Form::hidden('id_user') }}
                     <div class="tab-content">
                       <div class="tab-pane fade in active" id="kasus">
                         <h4 class="hform"> Portofolio Kasus Terakhir </h4>

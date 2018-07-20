@@ -14,7 +14,7 @@ class MemberPengembangansTable extends Migration
     public function up()
     {
         Schema::create('pengajuan_pengembangan', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_pengembangan');
             $table->integer('id_pengajuan')->unsigned()->nullable();
             $table->string('tahun')->nullable();
             $table->string('nama_kegiatan')->nullable();

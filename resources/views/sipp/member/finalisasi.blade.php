@@ -59,7 +59,7 @@
                     </ul>
 
                     <!-- Tab panes -->
-                    <form method="POST" action="member/tambahsipp">
+                    {!! Form::open(['route' => 'finalisasi.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
                     <div class="tab-content">
                       <div class="tab-pane fade in active" id="final">
                         <h4 class="hform"> Mengirim Berkas</h4>
@@ -67,12 +67,15 @@
                         <div style="float:right;">
                           &nbsp;
                           <a href="#peng-pro" data-toggle="tab"><button type="button" class="btn btn-primary btn-lg" onclick="backwardPembayaran(6);" data-toggle="modal" data-target=".bs-example-modal-lg">Kembali</button></a>
-                          <button onclick="loadingUpload();" type="submit" name="submitberkas" class="btn btn-primary btn-lg">Kirim Berkas</button>
+                          
+                          {{-- <button onclick="loadingUpload();" type="submit" name="submitberkas" class="btn btn-primary btn-lg">Kirim Berkas</button> --}}
+                            {{ Form::submit('Kirim Berkas', array('class' => 'btn btn-primary btn-lg')) }}
+                          {!! Form::close() !!}
                         </div>
                         <br><br><br>
                       </div>
                     </div>
-                    </form>
+                    
                 </div>
                 <!-- /.panel-body -->
             </div>

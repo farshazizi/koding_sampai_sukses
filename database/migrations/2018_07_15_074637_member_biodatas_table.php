@@ -14,7 +14,8 @@ class MemberBiodatasTable extends Migration
     public function up()
     {
         Schema::create('pengajuan_administrasi', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_pengajuan');
+            $table->integer('id_user')->unsigned()->nullable();
             $table->string('email')->nullable();
             $table->string('nama_lengkap')->nullable();
             $table->string('foto_pas')->nullable();

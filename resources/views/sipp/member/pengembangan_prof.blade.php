@@ -61,7 +61,8 @@
                     <!-- Tab panes -->
                     {{-- <form method="POST" action="member/tambahsipp"  enctype="multipart/form-data"> --}}
                     {!! Form::open(['route' => 'pengembangan_prof.store', 'files'=> true, 'enctype'=>'multipart/form-data']) !!}
-                    {{ Form::hidden('id_pengajuan') }}
+                    {{-- {{ Form::hidden('id_pengajuan') }} --}}
+                    {{ Form::hidden('id_user') }}
                     <div class="tab-content">
                       <div class="tab-pane fade in active" id="peng-pro">
                         <h4 class="hform"> Portofolio Pengembangan Professional </h4>

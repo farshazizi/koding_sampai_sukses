@@ -14,7 +14,7 @@ class AddUsersKarirTable extends Migration
     public function up()
     {
         Schema::table('users_karir', function (Blueprint $table) {
-            $table->foreign('id_user')->references('id_user')->on('users_administrasi')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

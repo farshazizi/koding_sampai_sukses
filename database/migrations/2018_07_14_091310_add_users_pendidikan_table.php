@@ -14,7 +14,7 @@ class AddUsersPendidikanTable extends Migration
     public function up()
     {
         Schema::table('users_pendidikan', function (Blueprint $table) {
-            $table->foreign('id_user')->references('id_user')->on('users_administrasi')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

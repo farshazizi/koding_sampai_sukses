@@ -17,7 +17,7 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        //
+        return view('sipp.member.biodata');
     }
 
     /**
@@ -27,7 +27,7 @@ class BiodataController extends Controller
      */
     public function create()
     {
-        return view('sipp.member.biodata');
+        // return view('sipp.member.biodata');
     }
 
     /**
@@ -179,7 +179,7 @@ class BiodataController extends Controller
         // redirect to another page
         // return redirect()->route('biodata.update');
         // return redirect('sipp/member/pembayaran');
-        return redirect()->route('biodata.show', $m_biodata->id);
+        return redirect()->route('biodata.show', $m_biodata->id_user);
         // return view('sipp.member.pembayaran');
     }
 
@@ -189,9 +189,9 @@ class BiodataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_user)
     {
-        $m_biodata = Biodata::find($id);
+        $m_biodata = Biodata::find($id_user);
         return view('sipp.member.pembayaran', compact('m_biodata'));
     }
 
@@ -213,10 +213,10 @@ class BiodataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_user)
     {
         // store in the database
-        $m_biodata = Biodata::find($id);
+        $m_biodata = Biodata::find($id_user);
 
         // $m_biodata->email                           = $request->input('email');
         // $m_biodata->nama_lengkap                    = $request->input('nama_lengkap');
@@ -236,101 +236,11 @@ class BiodataController extends Controller
         //     $m_biodata->foto_pas                    = $filename;
         // }
 
-        // $m_biodata->tempat_lahir                    = $request->input('tempat_lahir');
-        // $m_biodata->tanggal_lahir                   = $request->input('tanggal_lahir');
-        // $m_biodata->agama                           = $request->input('agama');
-        // $m_biodata->gender                          = $request->input('gender');
-        // $m_biodata->status_menikah                  = $request->input('status_menikah');
-        // $m_biodata->alamat                          = $request->input('alamat');
-        // $m_biodata->kota                            = $request->input('kota');
-        // $m_biodata->kodepos                         = $request->input('kodepos');
-        // $m_biodata->telepon                         = $request->input('telepon');
-        // $m_biodata->handphone                       = $request->input('handphone');
-        // $m_biodata->pendidikan1                     = $request->input('pendidikan1');
-        // $m_biodata->pendidikan2                     = $request->input('pendidikan2');
-        // $m_biodata->pendidikan3                     = $request->input('pendidikan3');
-        // $m_biodata->pendidikan4                     = $request->input('pendidikan4');
-
-        // $m_biodata->foto_ktp                        = $request->foto_ktp;
-        // if ($request->hasFile('foto_ktp')) {
-        //     $image = $request->file('foto_ktp');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('/images/foto_ktp' . $filename);
-        //     Image::make($image)->save($location);
-        //     $m_biodata->foto_ktp                    = $filename;
-        // }
-
-        // $m_biodata->foto_kta                        = $request->foto_kta;
-        // if ($request->hasFile('foto_kta')) {
-        //     $image = $request->file('foto_kta');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('/images/foto_kta' . $filename);
-        //     Image::make($image)->save($location);
-        //     $m_biodata->foto_kta                    = $filename;
-        // }
-
-        // $m_biodata->sertifikat_sebutan              = $request->sertifikat_sebutan;
-        // if ($request->hasFile('sertifikat_sebutan')) {
-        //     $image = $request->file('sertifikat_sebutan');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('/images/sertifikat_sebutan' . $filename);
-        //     Image::make($image)->save($location);
-        //     $m_biodata->sertifikat_sebutan           = $filename;
-        // }
-
-        // $m_biodata->surat_izin                      = $request->surat_izin;
-        // if ($request->hasFile('surat_izin')) {
-        //     $image = $request->file('surat_izin');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('/images/surat_izin' . $filename);
-        //     Image::make($image)->save($location);
-        //     $m_biodata->surat_izin                  = $filename;
-        // }
-
-        // $m_biodata->bidang1                         = $request->input('bidang1');
-        // $m_biodata->bidang2                         = $request->input('bidang2');
-        // $m_biodata->bidang3                         = $request->input('bidang3');
-        // $m_biodata->bidang4                         = $request->input('bidang4');
-        // $m_biodata->bidang5                         = $request->input('bidang5');
-        // $m_biodata->nama_praktek                    = $request->input('nama_praktek');
-        // $m_biodata->alamat_praktek                  = $request->input('alamat_praktek');
-        // $m_biodata->alat_tes                        = $request->input('alat_tes');
-        // $m_biodata->teman_praktek                   = $request->input('teman_praktek');
-        // $m_biodata->teman1                          = $request->input('teman1');
-        // $m_biodata->teman2                          = $request->input('teman2');
-        // $m_biodata->teman3                          = $request->input('teman3');
-        // $m_biodata->teman4                          = $request->input('teman4');
-        // $m_biodata->teman5                          = $request->input('teman5');
-        // $m_biodata->klien1                          = $request->input('klien1');
-        // $m_biodata->klien2                          = $request->input('klien2');
-        // $m_biodata->klien3                          = $request->input('klien3');
-        // $m_biodata->klien4                          = $request->input('klien4');
-        // $m_biodata->klien5                          = $request->input('klien5');
-        // $m_biodata->klien6                          = $request->input('klien6');
-
-        // $m_biodata->bukti_iuran_sipp                = $request->input('bukti_iuran_sipp');
-        // if ($request->hasFile('bukti_iuran_sipp')) {
-        //     $image = $request->file('bukti_iuran_sipp');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('/images/bukti_iuran_sipp' . $filename);
-        //     Image::make($image)->save($location);
-        //     $m_biodata->bukti_iuran_sipp            = $filename;
-        // }
-
         $photo = $request->file('bukti_iuran_sipp');
         $destination = base_path().'/public/images/bukti_iuran_sipp';
         $filename = $photo->getClientOriginalName();
         $photo->move($destination,$filename);
         $m_biodata['bukti_iuran_sipp']              = $filename;
-
-        // $m_biodata->bukti_pembayaran_sipp           = $request->input('bukti_pembayaran_sipp');
-        // if ($request->hasFile('bukti_pembayaran_sipp')) {
-        //     $image = $request->file('bukti_pembayaran_sipp');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('/images/bukti_pembayaran_sipp' . $filename);
-        //     Image::make($image)->save($location);
-        //     $m_biodata->bukti_pembayaran_sipp       = $filename;
-        // }
 
         $photo = $request->file('bukti_pembayaran_sipp');
         $destination = base_path().'/public/images/bukti_pembayaran_sipp';
@@ -340,7 +250,7 @@ class BiodataController extends Controller
 
         $m_biodata->save();
 
-        return redirect()->route('pendidikan_karir.store', $m_biodata->id);
+        return redirect()->route('pendidikan_karir.store', $m_biodata->id_user);
         // return view('sipp.member.pendidikan_karir', compact('m_biodata'));
     }
 

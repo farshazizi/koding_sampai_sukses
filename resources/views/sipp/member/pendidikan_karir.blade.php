@@ -61,7 +61,8 @@
               <!-- Tab panes -->
               {{-- <form method="POST" action="member/tambahsipp"> --}}
               {!! Form::open(['route' => 'pendidikan_karir.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
-                {{ Form::hidden('id_pengajuan') }}
+                {{-- {{ Form::hidden('id_pengajuan') }} --}}
+                {{ Form::hidden('id_user') }}
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="pendidikankarir">
                       <h4 class="hform"> Pengalaman Pendidikan</h4>
