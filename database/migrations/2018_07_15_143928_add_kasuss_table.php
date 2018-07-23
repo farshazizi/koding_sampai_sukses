@@ -14,7 +14,7 @@ class AddKasussTable extends Migration
     public function up()
     {
         Schema::table('pengajuan_kasus', function (Blueprint $table) {
-            $table->foreign('id_pengajuan')->references('id_user')->on('pengajuan')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_pengajuan')->references('id_pengajuan')->on('pengajuan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

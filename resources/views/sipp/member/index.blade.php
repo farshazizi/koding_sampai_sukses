@@ -35,7 +35,18 @@
 		                <img src="{{ asset('/img/icon/plus.png') }}" style="width: 24%; height: auto; margin-top: 5%"><br>
 		                <p style="color: black">Buat SIPP Baru</p>
 		            </div>
-		        </a>
+                </a>
+                {{-- @if($sta_tah->status_tahapan == 1) --}}
+                    {{-- <a href="{{ route()}}">
+                        <div class="dashboard-stat2" style="background-color: #d9d9db; text-align: center;">
+                            <img src="{{ asset('/img/icon/reload.png') }}" style="width: 24%; height: auto; margin-top: 5%"><br>
+                            <p style="color: black">
+                                SIPP dalam tahapan pemrosesan<br>
+                                Klik disini untuk melihat seluruh feedback yang telah masuk
+                            </p>
+                        </div> 
+                    </a> --}}
+                {{-- @endif --}}
 		    </div>
 		</div>
         <!-- END PAGE TITLE-->

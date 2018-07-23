@@ -20,7 +20,7 @@ class MemberKasusTable extends Migration
             $table->string('tujuan')->nullable();
             $table->string('nama_lembaga')->nullable();
             $table->string('tindakan')->nullable();
-            $table->string('checklist')->nullable();
+            $table->string('catatan')->nullable();
             $table->timestamps();
         });
     }

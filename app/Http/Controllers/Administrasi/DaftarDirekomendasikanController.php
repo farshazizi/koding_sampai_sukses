@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Administrasi;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member\Biodata;
+use App\Administrasi\PengajuanAdministrasi;
 use PDF;
 
 class DaftarDirekomendasikanController extends Controller
@@ -15,7 +15,7 @@ class DaftarDirekomendasikanController extends Controller
         ini_set('max_execution_time', 0);
         
         // $bio = Biodata::all();
-        $bios = Biodata::where('id', 1)->get();
+        $bios = PengajuanAdministrasi::where('id', 1)->get();
         $pdf = PDF::loadView('sipp.administrasi.lembar_permohonan_cetak', ['keluar'=>$bios])->setPaper('a4', 'portait');
         return $pdf->download('Lembar Permohonan.pdf');
     }
@@ -25,7 +25,7 @@ class DaftarDirekomendasikanController extends Controller
         ini_set("memory_limit",-1);
         ini_set('max_execution_time', 0);
         
-        $bios = Biodata::where('id', 1)->get();
+        $bios = PengajuanAdministrasi::where('id', 1)->get();
         $pdf = PDF::loadView('sipp.administrasi.portofolio_kegiatan_psikolog', ['keluar'=>$bios])->setPaper('a4', 'portait');
         return $pdf->download('Portofolio Kegiatan Psikolog.pdf');
     }
@@ -35,7 +35,7 @@ class DaftarDirekomendasikanController extends Controller
         ini_set("memory_limit",-1);
         ini_set('max_execution_time', 0);
         
-        $bios = Biodata::where('id', 1)->get();
+        $bios = PengajuanAdministrasi::where('id', 1)->get();
         $pdf = PDF::loadView('sipp.administrasi.berita_acara_penilaian', ['keluar'=>$bios])->setPaper('a4', 'portait');
         return $pdf->download('Berita Acara Penilaian.pdf');
     }
@@ -47,7 +47,7 @@ class DaftarDirekomendasikanController extends Controller
      */
     public function index()
     {
-        $halo = Biodata::orderBy('id')->get();
+        $halo = PengajuanAdministrasi::orderBy('id_pengajuan')->get();
         return view('sipp.administrasi.daftar_direkomendasikan', compact('halo'));
     }
 
@@ -58,7 +58,7 @@ class DaftarDirekomendasikanController extends Controller
      */
     public function create()
     {
-        return view('sipp.administrasi.daftar_direkomendasikan');
+        //
     }
 
     /**
@@ -81,7 +81,7 @@ class DaftarDirekomendasikanController extends Controller
      */
     public function show($id)
     {
-        $halo = Biodata::where('id_pengajuan', $id)->get();
+        $halo = PengajuanAdministrasi::where('id_pengajuan', $id)->get();
 
         return view('sipp.administrasi.daftar_direkomendasikan', compact('halo'));
     }

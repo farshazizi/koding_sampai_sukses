@@ -68,14 +68,14 @@
                         <div class="form-group">
                           <label for="spp/sipp" class="control-label col-md-3 col-sm-3 col-xs-12">Foto Bukti Transfer/Pembayaran Pendaftaran SIPP<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            {{ Form::file('bukti_iuran_sipp', null, array('class' => 'form-control')) }} Max File 100kb<br>
+                            {{ Form::file('bukti_iuran_sipp', null, array('class' => 'form-control', 'required' => '')) }} Max File 100kb<br>
                           </div>
                         </div>
 
                         <div class="form-group">
                           <label for="spp/sipp" class="control-label col-md-3 col-sm-3 col-xs-12">Foto Bukti Iuran Lunas HIMPSI<span class="required">*</span></label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            {{ Form::file('bukti_pembayaran_sipp', null, array('class' => 'form-control')) }} Max File 100kb<br>
+                            {{ Form::file('bukti_pembayaran_sipp', null, array('class' => 'form-control', 'required' => '')) }} Max File 100kb<br>
                           </div>
                         </div>
                     </div>

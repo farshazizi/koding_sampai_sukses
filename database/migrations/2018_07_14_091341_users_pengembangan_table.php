@@ -21,7 +21,7 @@ class UsersPengembanganTable extends Migration
             $table->string('nama_penyelenggara', 45)->nullable();
             $table->string('durasi', 45)->nullable();
             $table->string('foto_bukti', 45)->nullable();
-            $table->string('checklist', 45)->nullable();
+            $table->string('catatan')->nullable();
             $table->timestamps();
         });
     }

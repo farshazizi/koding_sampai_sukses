@@ -57,14 +57,14 @@
                         @foreach($halo as $halo)
                         <tr>
                             <td>{{ $i++ }}</td>
-                            <td>{{ $halo->id }}</td>
+                            <td>{{ $halo->id_pengajuan }}</td>
                             <td>{{ $halo->nama_lengkap }}</td>
                             <td>15 Juni 2018</td>
                             <td>Surabyaa</td>
                             <td>ABC</td>
                             <td>DEF</td>
                             <td>
-                                <a href="{{ route('dowawancara.show', $halo->id) }}"><button type="button" class="btn btn-primary">Mulai Wawancara</button></a>
+                                <a href="{{ route('dowawancara.show', $halo->id_pengajuan) }}"><button type="button" class="btn btn-primary">Mulai Wawancara</button></a>
                                 {{-- <a href="/sipp/pewawancara/dowawancara"><button type="button" class="btn btn-primary">Mulai Wawancara</button></a> --}}
                             </td>
                         </tr>

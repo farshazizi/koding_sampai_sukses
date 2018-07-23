@@ -14,7 +14,7 @@ class UsersAdministrasiTable extends Migration
     public function up()
     {
         Schema::create('users_administrasi', function (Blueprint $table) {
-            $table->increments('id_user');
+            $table->integer('id_user')->unsigned()->nullable();
             $table->string('email', 45)->nullable();
             $table->string('nama_lengkap', 45)->nullable();
             $table->string('foto_pas', 45)->nullable();

@@ -376,10 +376,6 @@
                         </div>
                       </div>
                     </div>
-                    {{-- {!! Form::close() !!} --}}
-                    {{-- <div class="box-footer">
-                      <center><button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a></center>
-                    </div> --}}
 
                     <div class="box-footer">
                       <center>
@@ -392,31 +388,11 @@
               </div>
             {!! Form::close() !!}
 
-            {{-- <form method="POST" action="member/tambahsipp" enctype="multipart/form-data">
-              <div class="tab-content">
-                <div class="tab-pane fade in active" id="biodata">
-                  <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                    <h4 class="hform">Biodata</h4>
-                  </div>
-
-                  <div class="box-footer">
-                    <center><button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">Lanjutkan</button></a></center>
-                  </div>
-                  
-                </div>
-              </div>
-            </form> --}}
           </div>
         </div>
-        <!-- /.panel-body -->
       </div>
-      <!-- /.panel -->
     </div>
-    <!-- END PAGE TITLE-->
-    <!-- END PAGE HEADER-->
   </div>
-  <!-- END CONTENT BODY -->
 </div>
-<!-- END CONTENT -->
 @include('sipp/member/_javascript')
 @endsection

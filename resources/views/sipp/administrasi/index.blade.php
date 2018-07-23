@@ -33,10 +33,19 @@
                   <td>{{ $i++ }}</td>
                   <td>{{ $halo->created_at }}</td>
                   <td>{{ $halo->nama_lengkap }}</td>
-                  <td>Menunggu Pengecekan Sekretariat</td>
+                  @if($statah->status_tahapan == 0 && $statah->flag_revisi == 0)
+                  <td>Menunggu Pengecekan Sekretariats</td>
                   <td>
-                    <center><a href="{{ route('ubahberkas.show', $halo->id_user) }}"><button type="button" class="btn btn-primary">Cek Berkas</button></a></center>
+                    <center><a href="{{ route('cekberkas.show', $halo->id_pengajuan) }}"><button type="button" class="btn btn-primary">Cek Berkas</button></a></center>
                   </td>
+                  @endif
+                  
+                  @if($statah->status_tahapan == 0 && $statah->flag_revisi == 1)
+                  <td>Menunggu Perbaikan Administrasi Pengaju/User</td>
+                  <td>
+                    <center><a href="{{ route('ubahberkas.show', $halo->id_pengajuan) }}"><button type="button" class="btn btn-primary">Ubah Berkas</button></a></center>
+                  </td>
+                  @endif
                 </tr>
                 @endforeach
               </tbody>

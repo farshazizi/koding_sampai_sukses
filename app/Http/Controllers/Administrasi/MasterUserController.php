@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Administrasi;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member\Biodata;
+use App\Administrasi\PengajuanAdministrasi;
 use App\User;
 
 class MasterUserController extends Controller
@@ -17,7 +17,7 @@ class MasterUserController extends Controller
     public function index()
     {
         $halo = User::orderby('id')->get();
-        $halo2 = Biodata::orderby('id')->get();
+        $halo2 = PengajuanAdministrasi::orderby('id_pengajuan')->get();
         return view('sipp.administrasi.master_user', compact('halo', 'halo2'));
     }
 
@@ -28,7 +28,7 @@ class MasterUserController extends Controller
      */
     public function create()
     {
-        return view('sipp.administrasi.master_user');
+        // return view('sipp.administrasi.master_user');
     }
 
     /**
@@ -39,31 +39,31 @@ class MasterUserController extends Controller
      */
     public function store(Request $request)
     {
-        // validate the data
-        $this->validate($request, array(
-            'nik'       => 'required',
-            'name'      => 'required',
-            'password'  => 'required',
-            'email'     => 'required',
-            'handphone' => 'required',
-            'role'      => 'required',
+        // // validate the data
+        // $this->validate($request, array(
+        //     'nik'       => 'required',
+        //     'name'      => 'required',
+        //     'password'  => 'required',
+        //     'email'     => 'required',
+        //     'handphone' => 'required',
+        //     'role'      => 'required',
             
-        ));
+        // ));
 
-        // store in the database
-        $user = new User;
+        // // store in the database
+        // $user = new User;
 
-        $user->nik          = $request->nik;
-        $user->name         = $request->name;
-        $user->password     = $request->password;
-        $user->email        = $request->email;
-        $user->handphone    = $request->handphone;
-        $user->role         = $request->role;
+        // $user->nik          = $request->nik;
+        // $user->name         = $request->name;
+        // $user->password     = $request->password;
+        // $user->email        = $request->email;
+        // // $user->handphone    = $request->handphone;
+        // // $user->role         = $request->role;
 
-        $user->save();
+        // $user->save();
 
-        // redirect to another page
-        return redirect()->route('sipp.administrasi.master_user');
+        // // redirect to another page
+        // return redirect()->route('sipp.administrasi.master_user');
     }
 
     /**
@@ -74,8 +74,8 @@ class MasterUserController extends Controller
      */
     public function show($id)
     {
-        $halo = Biodata::where('id', $id)->get();
-        return view('sipp.administrasi.master_user', compact('halo'));
+        // $halo = PengajuanAdministrasi::where('id_pengajuan', $id)->get();
+        // return view('sipp.administrasi.master_user', compact('halo'));
     }
 
     /**

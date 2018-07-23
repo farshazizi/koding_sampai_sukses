@@ -37,7 +37,82 @@
 
                 <div class="row" style="margin-top: 8px; margin-bottom: 8px">
                     <div class="col-lg-12">
-                        {!! Form::open(['route' => 'master_user.store', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
+                        {{-- <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                            {{ csrf_field() }}
+
+                            <div class="form-group{{ $errors->has('nik') ? ' has-error' : '' }}">
+                                <label for="nik" class="col-md-4 control-label">NIK</label>
+
+                                <div class="col-md-6">
+                                    <input id="nik" type="text" class="form-control" name="nik" value="{{ old('nik') }}" required autofocus>
+
+                                    @if ($errors->has('nik'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('nik') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Nama</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="email" class="col-md-4 control-label">E-Mail</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="col-md-4 control-label">Password</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                </div>
+                            </div>
+                        </form> --}}
+
                         <button type="button" class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Tambah User</button>
 
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,80 +125,90 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <table width="100%">
-                                            <tr>
-                                                <td>NIK</td>
-                                                <td></td>
-                                                <td>
-                                                    {{-- <input class="form-control" name="nik" required/> --}}
-                                                    {{ Form::text('nik', null, array('class' => 'form-control', 'required' => '')) }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><br></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nama</td>
-                                                <td></td>
-                                                <td>
-                                                    {{-- <input class="form-control" name="nama" required/> --}}
-                                                    {{ Form::text('name', null, array('class' => 'form-control', 'required' => '')) }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><br></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Password</td>
-                                                <td></td>
-                                                <td>
-                                                    {{-- <input class="form-control" name="password" required/> --}}
-                                                    {{ Form::text('password', null, array('class' => 'form-control', 'required' => '')) }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><br></td>
-                                            </tr>
-                                            <tr>
-                                                <td>E-Mail</td>
-                                                <td></td>
-                                                <td>
-                                                    {{-- <input type="email" class="form-control" name="email" required/> --}}
-                                                    {{ Form::text('email', null, array('class' => 'form-control', 'required' => '')) }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><br></td>
-                                            </tr>
-                                            <tr>
-                                                <td>No Hp</td>
-                                                <td></td>
-                                                <td>
-                                                    {{-- <input class="form-control" name="no_hp" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/> --}}
-                                                    {{ Form::number('handphone', null, array('class' => 'form-control', 'required' => '')) }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><br></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Role</td>
-                                                <td></td>
-                                                <td>
-                                                    {{ Form::select('role', ['-- Pilih Role --' => '-- Pilih Role --', 'Member' => 'Member', 'Wawancara' => 'Wawancara'], null, array('class' => 'form-control', 'required' => '')) }}
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        
+                                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                                            {{ csrf_field() }}
+
+                                            <div class="form-group{{ $errors->has('nik') ? ' has-error' : '' }}">
+                                                <label for="nik" class="col-md-4 control-label">NIK</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="nik" type="text" class="form-control" name="nik" value="{{ old('nik') }}" required autofocus>
+
+                                                    @if ($errors->has('nik'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('nik') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                                <label for="name" class="col-md-4 control-label">Nama</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                                    @if ($errors->has('name'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('name') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                                <label for="email" class="col-md-4 control-label">E-Mail</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                                    @if ($errors->has('email'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                                <label for="password" class="col-md-4 control-label">Password</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                                    @if ($errors->has('password'))
+                                                        <span class="help-block">
+                                                            <strong>{{ $errors->first('password') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-6 col-md-offset-4">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Register
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-success">Success</button>
+                                        {{ Form::submit('Success', array('class' => 'btn btn-success')) }}
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {!! Form::close() !!}
+
                     </div>
                 </div>
 
@@ -147,11 +232,13 @@
                                 @foreach($halo as $halo)
                                 <tr>
                                     <td>{{ $i++ }}</td>
+                                    <td>{{ $halo->nik }}</td>
+                                    <td>{{ $halo->name }}</td>
                                     <td></td>
-                                    <td>{{ $halo->nama_lengkap }}</td>
-                                    <td>{{ $halo2->email }}</td>
-                                    <td>{{ $halo2->handphone }}</td>
-                                    <td>{{}}</td>
+                                    <td></td>
+                                    {{-- <td>{{ $halo2->email }}</td> --}}
+                                    {{-- <td>{{ $halo2->handphone }}</td> --}}
+                                    <td></td>
                                     <td>
                                         <button type="button" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
                                         <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>

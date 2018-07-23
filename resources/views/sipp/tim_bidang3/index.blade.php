@@ -58,8 +58,8 @@
                             <td>{{ $halo->nama_lengkap }}</td>
                             <td>Menunggu Pengecekan Ulang Tim Bidang</td>
                             <td>
-                                <a href="{{ route('tb3_ubahberkas.show', $halo->id) }}"><button type="button" class="btn btn-primary">Ubah Berkas</button></a>
-                                <a href="{{ route('buatjadwalwawancara.show', $halo->id) }}"><button type="button" class="btn btn-primary">Tambah Jadwal Wawancara</button></a>
+                                <a href="{{ route('tb3_ubahberkas.show', $halo->id_pengajuan) }}"><button type="button" class="btn btn-primary">Ubah Berkas</button></a>
+                                <a href="{{ route('buatjadwalwawancara.show', $halo->id_pengajuan) }}"><button type="button" class="btn btn-primary">Tambah Jadwal Wawancara</button></a>
                             </td>
                         </tr>
                         @endforeach

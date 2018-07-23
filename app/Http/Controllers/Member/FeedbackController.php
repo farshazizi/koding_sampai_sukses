@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PembayaranController extends Controller
+class FeedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        //
+        return view('sipp.member.feedback');
     }
 
     /**

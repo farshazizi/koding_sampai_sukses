@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Pewawancara;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member\Biodata;
-use App\Member\Pendidikan;
-use App\Member\Karir;
-use App\Member\Kasus;
-use App\Member\Pengembangan_Professional;
+use App\Administrasi\PengajuanAdministrasi;
+use App\Administrasi\PengajuanPendidikan;   
+use App\Administrasi\PengajuanKarir;
+use App\Administrasi\PengajuanKasus;
+use App\Administrasi\PengajuanPengembangan;
 
 class DoWawancaraController extends Controller
 {
@@ -56,11 +56,11 @@ class DoWawancaraController extends Controller
      */
     public function show($id)
     {
-        $halo = Biodata::where('id', $id)->get();
-        $halo2 = Pendidikan::where('id_pengajuan', $id)->get();
-        $halo3 = Karir::where('id_pengajuan', $id)->get();
-        $halo4 = Kasus::where('id_pengajuan', $id)->get();
-        $halo5 = Pengembangan_Professional::where('id_pengajuan', $id)->get();
+        $halo = PengajuanAdministrasi::where('id_pengajuan', $id)->get();
+        $halo2 = PengajuanPendidikan::where('id_pendidikan', $id)->get();
+        $halo3 = PengajuanKarir::where('id_karir', $id)->get();
+        $halo4 = PengajuanKasus::where('id_kasus', $id)->get();
+        $halo5 = PengajuanPengembangan::where('id_pengembangan', $id)->get();
 
         return view('sipp.pewawancara.dowawancara', compact('halo', 'halo2', 'halo3', 'halo4', 'halo5'));
     }

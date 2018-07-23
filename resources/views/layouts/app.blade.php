@@ -1,80 +1,47 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Surat Izin Praktek Psikologi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="apple-touch-icon" href="http://128.199.122.47/sipp/assets/landingpage/pages/ico/60.png">
+ 
+    <link rel="icon" type="image/x-icon" href="http://128.199.122.47/sipp/assets/himpsi_jatim2.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN PLUGINS -->
+    <link href="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+    <link href="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/swiper/css/swiper.css" rel="stylesheet" type="text/css" media="screen" />
+    <!-- END PLUGINS -->
+    <!-- BEGIN PAGES CSS -->
+    <link class="main-stylesheet" href="http://128.199.122.47/sipp/assets/landingpage/pages/css/pages.css" rel="stylesheet" type="text/css" />
+    <link class="main-stylesheet" href="http://128.199.122.47/sipp/assets/landingpage/pages/css/pages-icons.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN PAGES CSS -->
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
-    </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+ 
+<body class="pace-white">
+    @yield('content')  
 </body>
+ 
+<!-- BEGIN CORE FRAMEWORK -->
+   <script src="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+   <script type="text/javascript" src="http://128.199.122.47/sipp/assets/landingpage/pages/js/pages.image.loader.js"></script>
+   <script type="text/javascript" src="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/jquery/jquery-1.11.1.min.js"></script>
+   <script type="text/javascript" src="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+   <!-- BEGIN SWIPER DEPENDENCIES -->
+   <script type="text/javascript" src="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/swiper/js/swiper.jquery.min.js"></script>
+   <!-- BEGIN RETINA IMAGE LOADER -->
+   <script type="text/javascript" src="http://128.199.122.47/sipp/assets/landingpage/assets/plugins/jquery-unveil/jquery.unveil.min.js"></script>
+   <!-- END VENDOR JS -->
+   <!-- BEGIN PAGES FRONTEND LIB -->
+   <script type="text/javascript" src="http://128.199.122.47/sipp/assets/landingpage/pages/js/pages.frontend.js"></script>
+   <!-- END PAGES LIB -->
+   <!-- BEGIN YOUR CUSTOM JS -->
+   <script src="http://128.199.122.47/sipp/assets/landingpage/assets/js/custom.js" type="text/javascript"></script>
 </html>

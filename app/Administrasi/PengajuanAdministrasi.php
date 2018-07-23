@@ -8,10 +8,10 @@ class PengajuanAdministrasi extends Model
 {
     protected $table = 'pengajuan_administrasi';
 
-	public $primaryKey = 'id_pengajuan';	
+	// public $primaryKey = 'id_administrasi';	
 
     public $fillable = [
-        'id_user',
+        'id_pengajuan',
         'email',
         'nama_lengkap',
         'foto_pas',

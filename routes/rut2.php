@@ -10,11 +10,54 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// MEMBER
+Route::get('/sipp/member', function () {
+    return view('sipp/member/index');
+});
+
+Route::get('/sipp/member/edit_akun', function () {
+    return view('sipp/member/edit_akun');
+});
+
+Route::resource('/sipp/member/biodata', 'Member\BiodataController');
+
+// Route::get('/sipp/member/biodata', function () {
+//     return view('sipp/member/biodata');
+// });
+
+// Route::resource('/sipp/member/pembayaran', 'Member\BiodataController');
+
+Route::get('/sipp/member/pembayaran', function () {
+    return view('sipp/member/pembayaran');
+});
+
+Route::resource('/sipp/member/pendidikan_karir', 'Member\PendidikanKarirController');
+
+// Route::get('/sipp/member/pendidikan_karir', function () {
+//     return view('sipp/member/pendidikan_karir');
+// });
+
+Route::resource('/sipp/member/portofolio_kasus', 'Member\PortofolioKasusController');
+
+Route::get('/sipp/member/portofolio_kasus', function () {
+    return view('sipp/member/portofolio_kasus');
+});
+
+Route::resource('/sipp/member/pengembangan_prof', 'Member\PengembanganProfessionalController');
+
+Route::get('/sipp/member/pengembangan_prof', function () {
+    return view('sipp/member/pengembangan_prof');
+});
+
+Route::resource('/sipp/member/finalisasi', 'Member\FinalisasiController');
+
+Route::get('/sipp/member/finalisasi', function () {
+    return view('sipp/member/finalisasi');
+});
+
 // ADMINISTRASI
-Route::get('/sipp/administrasi/', 'Administrasi\HomeController@index')->name('home.index');
-// Route::get('/sipp/administrasi/', ['as' => 'registration7', 'uses' => 'Administrasi\HomeController@index']);
+Route::get('/sipp/administrasi/', 'Administrasi\HomeController@index');
 Route::resource('/sipp/administrasi/ubahberkas', 'Administrasi\HomeController');
-Route::resource('/sipp/administrasi/cekberkas', 'Administrasi\CekBerkasController');
 
 // Route::get('/sipp/administrasi/home', function () {
 //     return view('sipp/administrasi/home');
@@ -100,42 +143,6 @@ Route::get('/sipp/wawancara/edit_akun', function () {
     return view('sipp/pewawancara/edit_akun');
 });
 
-Route::group(['middleware' => 'auth'], function() {
-    
-    Route::get('/home', 'HomeController@index')->name('home');
-    // Route::resource('/', 'Auth\LoginController');
-
-    // MEMBER
-    Route::get('/sipp/member', function () {
-        return view('sipp/member/index');
-    });
-
-    Route::get('/sipp/member/edit_akun', function () {
-        return view('sipp/member/edit_akun');
-    });
-
-    Route::resource('/sipp/member/biodata', 'Member\BiodataController');
-
-    Route::get('/sipp/member/pembayaran', function () {
-        return view('sipp/member/pembayaran');
-    });
-
-    Route::resource('/sipp/member/pendidikan_karir', 'Member\PendidikanKarirController');
-
-    Route::resource('/sipp/member/portofolio_kasus', 'Member\PortofolioKasusController');
-
-    Route::resource('/sipp/member/pengembangan_prof', 'Member\PengembanganProfessionalController');
-
-    Route::resource('/sipp/member/finalisasi', 'Member\FinalisasiController');
-
-    Route::get('/sipp/member/', 'Member\AfterFinalisasiController@index')->name('afterFinalisasi.index');
-
-    // Route::get('/sipp/member/feedback', function () {
-    //     return view('sipp/member/feedback');
-    // });
-
-    Route::resource('/sipp/member/feedback', 'Member\FeedbackController');
-
-    Route::resource('/sipp/member/lihatberkaspengaju', 'Member\LihatBerkasPengajuController');
-});
 Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

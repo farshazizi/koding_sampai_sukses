@@ -8,9 +8,10 @@ class Biodata extends Model
 {
     protected $table = 'users_administrasi';
 
-	public $primaryKey = 'id_user';	
+	public $primaryKey = 'id_administrasi';	
 
     public $fillable = [
+        'id_user',
         'email',
         'nama_lengkap',
         'foto_pas',

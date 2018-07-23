@@ -16,6 +16,6 @@ class PengajuanKasus extends Model
         'tujuan',
         'nama_lembaga',
         'tindakan',
-        'checklist',
+        'catatan',
     ];
 }

@@ -20,7 +20,7 @@ class UsersKasusTable extends Migration
             $table->string('tujuan', 45)->nullable();
             $table->string('nama_lembaga', 45)->nullable();
             $table->string('tindakan', 45)->nullable();
-            $table->string('checklist', 45)->nullable();
+            $table->string('catatan')->nullable();
             $table->timestamps();
         });
     }

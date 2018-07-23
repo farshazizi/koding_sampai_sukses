@@ -10,6 +10,12 @@ use App\Member\Karir;
 use App\Member\Kasus;
 use App\Member\Pengembangan_Professional;
 
+use App\Administrasi\PengajuanAdministrasi;
+use App\Administrasi\PengajuanKarir;
+use App\Administrasi\PengajuanKasus;
+use App\Administrasi\PengajuanPendidikan;
+use App\Administrasi\PengajuanPengembangan;
+
 class HomeController extends Controller
 {
     /**
@@ -19,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $halo = Biodata::orderby('id')->get();
+        $halo = PengajuanAdministrasi::orderby('id_pengajuan')->get();
         return view('sipp.pewawancara.index', compact('halo'));
     }
 
@@ -52,13 +58,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        $halo = Biodata::where('id', $id)->get();
-        $halo2 = Pendidikan::where('id_pengajuan', $id)->get();
-        $halo3 = Karir::where('id_pengajuan', $id)->get();
-        $halo4 = Kasus::where('id_pengajuan', $id)->get();
-        $halo5 = Pengembangan_Professional::where('id_pengajuan', $id)->get();
-
-        return view('sipp.pewawancara.dowawancara', compact('halo', 'halo2', 'halo3', 'halo4', 'halo5'));
+        //
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Kasus;
+use Auth;
 
 class PortofolioKasusController extends Controller
 {
@@ -41,13 +42,12 @@ class PortofolioKasusController extends Controller
             $kas = new Kasus;
             
             // $kas->id_pengajuan      = $request->id_pengajuan;
-            $kas->id_user           = $request->id_user;
-            $kas->checklist         = $request->checklist;
-
+            $kas->id_user           = Auth::user()->id;
             $kas->tahun             = $request->tahun[$i]; 
             $kas->tujuan            = $request->tujuan[$i]; 
             $kas->nama_lembaga      = $request->nama_lembaga[$i]; 
             $kas->tindakan          = $request->tindakan[$i]; 
+            $kas->catatan           = $request->catatan;
 
             $kas->save();
         }

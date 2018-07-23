@@ -225,7 +225,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    {!! Form::open(['route' => ['berkas_user.show', $halo->id], 'method' => 'GET', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
+                                    {!! Form::open(['route' => ['berkas_user.show', $halo->id_pengajuan], 'method' => 'GET', 'files'=>true, 'enctype'=>'multipart/form-data']) !!}
                                         {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#lihat">Lihat</button> --}}
                                         {{ Form::submit('Lihat', array('class' => 'btn btn-primary btn-block')) }}
                                     {!! Form::close() !!}

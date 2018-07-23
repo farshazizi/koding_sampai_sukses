@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Pengembangan_Professional;
 use Image;
+use Auth;
 
 class PengembanganProfessionalController extends Controller
 {
@@ -42,9 +43,7 @@ class PengembanganProfessionalController extends Controller
             $peng_prof = new Pengembangan_Professional;
             
             // $peng_prof->id_pengajuan         = $request->id_pengajuan;
-            $peng_prof->id_user              = $request->id_user;
-            $peng_prof->checklist            = $request->checklist;
-
+            $peng_prof->id_user              = Auth::user()->id;
             $peng_prof->tahun                = $request->tahun[$i]; 
             $peng_prof->nama_kegiatan        = $request->nama_kegiatan[$i]; 
             $peng_prof->nama_penyelenggara   = $request->nama_penyelenggara[$i]; 
@@ -72,6 +71,7 @@ class PengembanganProfessionalController extends Controller
                     $peng_prof->foto_bukti = $filename;
                 }
             }
+            $peng_prof->catatan             = $request->catatan;
 
             $peng_prof->save();
         }

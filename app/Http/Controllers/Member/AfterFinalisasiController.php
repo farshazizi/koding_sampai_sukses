@@ -1,18 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Administrasi;
+namespace App\Http\Controllers\Member;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member\Biodata;
-use App\Member\Pendidikan;
-use App\Member\Pengembangan_Professional;
-use App\Administrasi\PengajuanAdministrasi;
-use App\Administrasi\PengajuanPendidikan;
-use App\Administrasi\PengajuanPengembangan;
-use DB;
 
-class BerkasUserController extends Controller
+class AfterFinalisasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +14,7 @@ class BerkasUserController extends Controller
      */
     public function index()
     {
-        $halo = PengajuanAdministrasi::orderBy('id_pengajuan')->get();
-        
-        return view('sipp.administrasi.berkas_user', compact('halo'));
+        return view('sipp.member.after_finalisasi');
     }
 
     /**
@@ -33,7 +24,7 @@ class BerkasUserController extends Controller
      */
     public function create()
     {
-        return view('sipp.administrasi.berkas_user');
+        //
     }
 
     /**
@@ -55,10 +46,7 @@ class BerkasUserController extends Controller
      */
     public function show($id)
     {
-        $halo = PengajuanPendidikan::where('id_pengajuan', $id)->get();
-        $halos = PengajuanPengembangan::where('id_pengajuan', $id)->get();
-
-        return view('sipp.administrasi.berkas_user_show', compact('halo', 'halos'));
+        //
     }
 
     /**

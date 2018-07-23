@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tim_Bidang3;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member\Biodata;
+use App\Administrasi\PengajuanAdministrasi;
 
 class JadwalWawancaraController extends Controller
 {
@@ -15,7 +15,7 @@ class JadwalWawancaraController extends Controller
      */
     public function index()
     {
-        $halo = Biodata::orderby('id')->get();
+        $halo = PengajuanAdministrasi::orderby('id_pengajuan')->get();
         return view('sipp.tim_bidang3.jadwal_wawancara', compact('halo'));
     }
 

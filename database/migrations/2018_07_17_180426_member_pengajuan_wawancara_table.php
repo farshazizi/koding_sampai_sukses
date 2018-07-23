@@ -14,7 +14,7 @@ class MemberPengajuanWawancaraTable extends Migration
     public function up()
     {
         Schema::create('pengajuan_wawancara', function (Blueprint $table) {
-            $table->increments('id_pengajuan');
+            $table->integer('id_pengajuan')->unsigned()->nullable();
             $table->string('waktu_wawancara', 45);
             $table->string('tempat', 45);
             $table->integer('pewawancara_1');

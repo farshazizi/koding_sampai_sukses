@@ -17,26 +17,40 @@
             </div>
         </li>
         <!-- END SIDEBAR TOGGLER BUTTON -->
-        <li class="nav-item  ">
+        <li class="nav-item">
             <a href="/sipp/member" class="nav-link nav-toggle">
                 <i class="icon-home"></i>
                 <span class="title">Home</span>
                 <span class="arrow"></span>
             </a>
         </li>
-        <li class="nav-item  ">
+        <li class="nav-item">
             <a href="/sipp/member/edit_akun" class="nav-link nav-toggle">
                 <i class="icon-user"></i>
                 <span class="title">Edit Akun</span>
                 <span class="arrow"></span>
             </a>
         </li>
-        <li class="nav-item  ">
+        {{-- <li class="nav-item">
             <a href="#" class="nav-link nav-toggle">
                 <i class="icon-logout"></i>
                 <span class="title">Logout</span>
                 <span class="arrow"></span>
             </a>
+        </li> --}}
+        <li class="nav-item">
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();"
+                class="nav-link nav-toggle">
+                <i class="icon-logout"></i>
+                <span class="title">Logout</span>
+                <span class="arrow"></span>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </li>
     </ul>
     <!-- END SIDEBAR MENU -->

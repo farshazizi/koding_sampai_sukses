@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Member;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member\Biodata;
+use App\Administrasi\Pengajuan;
 use Auth;
+use DB;
 use Image;
 
 class BiodataController extends Controller
@@ -18,6 +20,19 @@ class BiodataController extends Controller
     public function index()
     {
         return view('sipp.member.biodata');
+        // $status = DB::table('pengajuan')
+        //     ->select('status_tahapan')
+        //     ->where('id_user', '=', Auth::user()->id)->get();
+
+        // dd($status);
+        // if ($status == 0) {
+        //     return view('sipp.member.biodata');
+        // } elseif ($status == 1) {
+        //     $statah = DB::table('pengajuan')
+        //     ->select('status_tahapan')
+        //     ->where('id_user', '=', Auth::user()->id)->first();
+        //     return view('sipp.member.biodata')->with('sta_tah', $statah);
+        // }
     }
 
     /**
@@ -38,10 +53,19 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, array(
+            'foto_pas'              => 'required',
+            'foto_ktp'              => 'required',
+            'foto_kta'              => 'required',
+            'sertifikat_sebutan'    => 'required',
+            'surat_izin'            => 'required'
+        ));
+
         // store in the database
         $m_biodata = new Biodata;
 
-        $m_biodata->email                           = $request->email;
+        $m_biodata->id_user                         = Auth::user()->id;
+        $m_biodata->email                           = Auth::user()->email;
         $m_biodata->nama_lengkap                    = $request->nama_lengkap;
 
         // $m_biodata->foto_pas                        = $request->foto_pas;
@@ -193,6 +217,7 @@ class BiodataController extends Controller
     {
         $m_biodata = Biodata::find($id_user);
         return view('sipp.member.pembayaran', compact('m_biodata'));
+        // return redirect()->route('biodata.update', $m_biodata->id_pengajuan);
     }
 
     /**

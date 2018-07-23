@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Member\Pendidikan;
 use App\Member\Karir;
 use Image;
+use Auth;
 
 class PendidikanKarirController extends Controller
 {
@@ -27,7 +28,7 @@ class PendidikanKarirController extends Controller
      */
     public function create()
     {
-        // return view('sipp.member.pendidikan_karir');
+        //
     }
 
     /**
@@ -42,10 +43,7 @@ class PendidikanKarirController extends Controller
         for ($i=0;$i<count($request->jenjang_pendidikan);$i++) {
             $pend = new Pendidikan;
             
-            // $pend->id_pengajuan         = $request->id_pengajuan;
-            $pend->id_user              = $request->id_user;
-            $pend->checklist            = $request->checklist;
-
+            $pend->id_user              = Auth::user()->id;
             $pend->jenjang_pendidikan   = $request->jenjang_pendidikan[$i]; 
             $pend->universitas          = $request->universitas[$i]; 
             $pend->bidang_ilmu          = $request->bidang_ilmu[$i]; 
@@ -124,6 +122,7 @@ class PendidikanKarirController extends Controller
                     $pend->transkrip = $filename;
                 }
             }
+            $pend->checklist            = $request->checklist;
             
             $pend->save();
         }
@@ -131,13 +130,12 @@ class PendidikanKarirController extends Controller
         for ($i=0;$i<count($request->nama_organisasi);$i++) {
             $kar = new Karir;
             
-            $kar->id_user                = $request->id_user;
-            $kar->checklist              = $request->checklist;
-
+            $kar->id_user                = Auth::user()->id;
             $kar->nama_organisasi        = $request->nama_organisasi[$i];
             $kar->jabatan                = $request->jabatan[$i];
             $kar->tahun_masukKarir       = $request->tahun_masukKarir[$i];
             $kar->tahun_keluar           = $request->tahun_keluar[$i];
+            $kar->checklist              = $request->checklist;
 
             $kar->save();
         }

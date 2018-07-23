@@ -64,15 +64,16 @@
 
                   <div class="col-lg-8">
                     <h4>Nama  : {{ $halo->nama_lengkap }}</h4>
-                    <h4>NIK   : {{ $halo->nik }}</h4>
+                    @foreach($halo3 as $halo3)
+                    <h4>NIK   : {{ $halo3->nik }}</h4>
+                    @endforeach
                     <br>
                     <h5> Catatan Feedback</h5>
-                    {{-- {!! Form::model($halo, ['method' => 'PATCH', 'files'=>true, 'enctype'=>'multipart/form-data' 'route' => ['ubahberkas.update', $halo->id_user]]) !!} --}}
-                    {!! Form::model($halo,['method' => 'PATCH', 'files'=>true, 'enctype'=>'multipart/form-data', 'class' => 'form-horizontal','route'=>['ubahberkas.update',$halo->id_user]]) !!}
+                    {!! Form::model($halo,['method' => 'PATCH', 'files'=>true, 'enctype'=>'multipart/form-data', 'class' => 'form-horizontal','route'=>['cekberkas.update',$halo->id_pengajuan]]) !!}
                     {{ method_field('PATCH') }}{{csrf_field()}}
                     {{ Form::hidden('id_pengajuan') }}
                     {{-- <textarea id="editor1" name="catatan" rows="10" cols="80" placeholder="Tuliskan sesuatu disini"></textarea> --}}
-                    {{ Form::textarea('catatan', null, array('class' => 'form-control', 'rows' => '10', 'cols' => '80', 'placeholder' => 'Tuliskan sesuatu disini')) }}
+                    {{ Form::textarea('catatan', null, array('class' => 'form-control', 'rows' => '10', 'cols' => '80', 'placeholder' => 'Tuliskan sesuatu disini', 'required')) }}
                     <br><br>
                     <div>
                       {{-- <select class="form-control" name="feedback" required>
@@ -643,21 +644,21 @@
   </div>
 </div>
 <script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
+  function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
 
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
 </script>
 @endsection

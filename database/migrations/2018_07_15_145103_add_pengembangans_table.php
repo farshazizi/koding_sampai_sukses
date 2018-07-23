@@ -14,7 +14,7 @@ class AddPengembangansTable extends Migration
     public function up()
     {
         Schema::table('pengajuan_pengembangan', function (Blueprint $table) {
-            $table->foreign('id_pengajuan')->references('id_user')->on('pengajuan')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_pengajuan')->references('id_pengajuan')->on('pengajuan')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
